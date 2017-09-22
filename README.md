@@ -50,3 +50,44 @@ onStart();
 
 onResume();
 
+### Explain about GCM implementation?
+
+![Alt text](https://androidexample.com/upload/content/Push_notification_Workflow.png "Optional title")
+
+### Q: Object class and its methods ?
+The Object class is the parent class of all the classes in java by default.
+* The Object class is beneficial if you want to refer any object whose type you don't know. Notice that parent class reference variable can refer the child class object, know as upcasting.
+* Object class is present in java.lang package.
+* Object class methods are available to all Java classes.
+* There are 12 methods in Object class:
+
+| Method | Description |
+| --- | --- |
+| public final Class getClass() | returns the Class class object of this object. The Class class can further be used to get the metadata of this class. |
+| public int hashCode() | returns the hashcode number for this object. |
+| public boolean equals(Object obj) | compares the given object to this object. |
+| protected Object clone() throws CloneNotSupportedException | creates and returns the exact copy (clone) of this object. |
+| public String toString() | returns the string representation of this object.|
+| public final void notify() | wakes up single thread, waiting on this object's monitor.|
+| public final void notifyAll() | wakes up all the threads, waiting on this object's monitor.|
+| public final void wait(long timeout)throws InterruptedException | causes the current thread to wait for the specified milliseconds, until another thread notifies (invokes notify() or notifyAll() method). |
+| public final void wait(long timeout,int nanos)throws InterruptedException | causes the current thread to wait for the specified milliseconds and nanoseconds, until another thread notifies (invokes notify() or notifyAll() method). |
+| public final void wait()throws InterruptedException | causes the current thread to wait, until another thread notifies (invokes notify() or notifyAll() method). |
+| protected void finalize()throws Throwable. | is invoked by the garbage collector before object is being garbage collected.
+
+*Note :* Whenever we try to print any Object reference, then internally toString() method is called.
+ 
+**hashCode() :** For every object, JVM generates a unique number which is hashcode. It returns distinct integers for distinct objects. A common misconception about this method is that hashCode() method returns the address of object, which is not correct. It convert the internal address of object to an integer by using an algorithm. The hashCode() method is native because in Java it is impossible to find address of an object, so it uses native languages like C/C++ to find address of the object.
+
+**Use of hashCode() method :** Returns a hash value that is used to search object in a collection. JVM(Java Virtual Machine) uses hashcode method while saving objects into hashing related data structures like HashSet, HashMap, Hashtable etc. The main advantage of saving objects based on hash code is that searching becomes easy.
+
+*Note :* Override of hashCode() method needs to be done such that for every object we generate a unique number.
+ 
+**equals(Object obj) :** Compares the given object to “this” object (the object on which the method is called). It gives a generic way to compare objects for equality. It is recommended to override equals(Object obj) method to get our own equality condition on Objects.
+ 
+**getClass() :** Returns the class object of “this” object and used to get actual runtime class of the object. It can also be used to get metadata of this class. The returned Class object is the object that is locked by static synchronized methods of the represented class. As it is final so we don’t override it.
+ 
+**finalize() method :** This method is called just before an object is garbage collected. It is called by the Garbage Collector on an object when garbage collector determines that there are no more references to the object. We should override finalize() method to dispose system resources, perform clean-up activities and minimize memory leaks.
+Note : finalize method is called just once on an object even though that object is eligible for garbage collection multiple times.
+ 
+**clone() :** It returns a new object that is exactly the same as this object.
