@@ -1,7 +1,7 @@
 # android-interview-questions-by-firoz
 Here is collection for all interview questions asked in different companies in India for an fresher to experienced android developer. 
 
-### What is Android?
+### Q: What is Android ?
 
 Android is an open-source, linux-based operating system that is used in mobiles, tablets, televisions and growing range of devices encompassing everything from wearable computing to in-car entertainment. It launched in 2003 and Andy Rubin is the founder of Android. Android is an open source project (led by Google but it doesn't belong to them) called AOSP (Android Open Source Project) which is equipped with rich components that allows developers to create and run apps that can perform both basic and advanced functions.
 
@@ -50,7 +50,7 @@ onStart();
 
 onResume();
 
-### Explain about GCM implementation?
+### Q: Explain about GCM implementation?
 
 ![Alt text](https://androidexample.com/upload/content/Push_notification_Workflow.png "Optional title")
 
