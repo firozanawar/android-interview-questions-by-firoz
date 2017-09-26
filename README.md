@@ -112,6 +112,183 @@ Note : finalize method is called just once on an object even though that object 
 ### Q: Can service be called from any other thread ?
 ### Q: How listener (e.g click) works in android ?
 ### Q: Difference between list and set ?
+### Q: Difference between COARSE & FINE_LOCATION?
+### Q: why string is immutable in java?
+### Q: What is static binding and dynamic binding ?
+### Q: can interface be final ?
+### Q: Runtime Polymorphism ?
+### Q: Which of the following is the immediate base class for Activity and Service classes?
+### Q: webservice in android?
+### Q: How RecyclerView works with Android ?
+### Q: How HashMap works ?
+### Q: How HashMap works?
+### Q: How to update textview from intentservice ?
+### Q: What is handler and how it works?
+### Q: What is onNewIntent()?
+### Q: Why we go for HashMap ?
+### Q: What is time and space complexity?
+### Q: Alarm Manager ? 
+### Q: Job scheduler?
+### Q: what is doze mode?
+### Q: Reverse  a sack ? reverse and array ?
+### Q: How to create your own Event bus?
+### Q: YouTube Player API ?
+### Q: What is complexity of HashMap with node n?
+### Q: Problem with Alarm Manager?
+### Q: What is order of process in android ? Foregorund->visible----------------->Empty
+### Q: Access level of content provider?
+### Q: Synchronization in singlton class ?
+### Q: listview for generic screens?
+### Q: linkify class?
+### Q: xhdpi which API level ?
+### Q: fragment life cycle?
+### Q: activity life cycle?
+### Q: abstract class ? can abstract method be final ?
+### Q: minimum screen measurement ? 720p, 1024p,240p
+### Q: Remote FactoryClass?
+### Q: content provider uses the shared preferences?
+### Q: find middle element of linkedlist?
+### Q: fail pass?
+### Q: If two fragment A& B. if B replace A what would be life cycle?
+### Q: A & B two fragment in same activity same time. How to pass the data?
+### Q: GCM push notification implementation?
+### Q: how to find unique element in array?
+### Q: What is Alarm Manager ? Q: Advantages of  Alarm Manager ?Disadvantages?
+### Q: Job scheduler ? Advantages?
+### Q: What is handler ? & Handler Vs Thread?
+### Q: When to use AsyncTask, Handler, Service?
+### Q: Linkedlist intersecting point ?
+### Q: Singleton ?
+### Q:  Array to find unique element?
+### Q: Message and looper?
+### Q: How Asynctask internally works? Create your own asynctask?
+### Q: difference between Thread and service?
+### Q: How to create optimise listview with images?
+### Q: what is getView()?
+### Q: launch mode in android?
+### Q: what is gravity and layout_gravity ?
+### Q: how to dra X on right top corner on any dialog?
+### Q: What is searching techniques ?
+### Q: What is sorting ? explain some sorting techniques and write programs?
+### Q: What is pendingintent?
+### Q: What is START_STICKY, START_NOT_STICKTY, START_REDELIVER_INTENT etc?
+### Q: Types of services in android ? what method to must override?
+### Q: Java design pattern.
+### Q: What is IBInder();
+### Q: How to identify install and uninstall tracking of an application ?
+### Q: What is the difference between Picaso and Glid ?
+### Q: Explain about video streaming ?
+### Q: Ad SDK integration ?
+### Q: activity life cycle
+### Q: How to pass data from activity to fragment and fragment to activity ?
+### Q: How to handle memory leak using handler
+### Q: How to pass data from one fragment to another?
+### Q: Overloading and Overriding?
+### Q: Sticky intent?
+### Q: Components of Android ?
+### Q: Fragment life cycle?
+### Q: What is content provider ?
+### Q: What if finally got exception ?
+### Q: Write a program for fibonacci series?
+### Q: Reverse a string using recursion ?
+### Q: How to dump a Database to an  ArrayList?
+### Q: Find duplicate in array?
+### Q: 0->1 and 1->0  without using conditional operators?
+### Q: Accessing variables in static context related problems?
+### Q: Difference between Volley and Retrofit?
+### Q: What is exception handling?
+### Q: How many objects will get created in String problem?
+### Q: What are Sensors?
+### Q: If no column found then which exception ?
+### Q: Difference between GCm and FCM.
+### Q: What is URI path in android 7?
+### Q: Batch count for number of messages like whatsapp
+### Q: How to create facebook feed with smooth user experience. Uploading data from db to server. How to maintain local and server key
+### Q: Map in android
+### Q: Multiple fragments with viewpager with gridview. 
+### Q: Abstract classes?
+### Q: 2D matrix problem ?
+### Q: Printing O, Printing O, Printing AO problem?
+### Q: How to pass data between fragments using callbacks?
+### Q: What is static blocks? Use?
+### Q: How job scheduling works?
+### Q: Generics in java ?
+### Q:  What is intent?
+### Q: What is service?
+### Q: How to create aidl service?
+### Q: Abstract classes?
+### Q: Polymorphism ?
+### Q: Method overriding & overloading ?
+### Q: How to create different row in recyclerview?
+### Q: JSON parsing?
+### Q: final keyword ?
+### Q: Why java not supported Multiple inheritance ? tell me solution?
+### Q: Activity life cycle?
+### Q: fragment life cycle ? Activity A1 has fragment A then replaced with B then C then D and from D to B. How memory will be created.
+### Q: Difference types of services? What is bound service?
+### Q: Difference between Process and Thread?
+### Q: Difference between Thread and Asynctask?
+### Q: How cardboard work in android? VR technologies
+### Q: How voice search work?
+### Q: 9 coin problems? There 9 coins with 1 heavy weghted coin. Find the fake coin? Worst case, best case etc?
+### Q: How to arrange value in HashMap in incoming elements ways?
+### Q: How to pass data between fragments using callbacks?
+### Q: Can a thread can be started inside another thread? Can a Asyncttask can be started inside another AsyncTask?
+### Q: How SyncAdapter works?
+### Q: How Executors work?
+### Q: Comparator and comparable ?
+### Q: What is Eventbus ?
+### Q: What do you mean by composition ?
+### Q: What is Map ? Write a program to put and get value from HasMap ?
+### Q: What is services ? Types ? Life Cycle ?
+### Q: What is Activity ? Life cycle ?
+### Q: What is Fragment and its life cycle ?
+### Q: Diff b/w Intent, StickyIntent & PendingIntent ?
+### Q: Difference between service and AsyncTask ?
+### Q: difference between Service and threads ?
+### Q: What is encapsulation ?
+### Q: Android architecture ?
+### Q: Android application components ?
+### Q: ListView with search? How to filter results of basis on key entered ?
+### Q: How to handle the unsent data ?
+### Q: How to pass data between fragments ?
+### Q: Sync Adapters ?
+### Q: How to add column in existing table ? ALTER table .
+### Q: Erro code ? 404, 500 etc.
+### Q: What is difference between Parcelable and Serializable ?
+### Q: What is deep and shallow copy ?
+### Q: What is the difference between iterator and enumerator ?
+### Q: What is the diff b/w comparator and comparable ?
+### Q: What is weak reference ?
+### Q: Limitation of proguard?
+### Q: Diff b/w sparseArray and HashMap ?
+### Q: How to interact b/w 2 fragments ?
+### Q: How eventbus works internally ?
+### Q: Puzzle : 1 to 100 people in circle shooting each left one. Give a generic solution for N and also find which one will be last ?
+### Q: Design Problem - Deck of cards problem.
+### Q: Diff b/w these 2
+### Q: String a= “abcd”;
+String a =new String(“abcd);
+### Q: How you handle memory leaks in android ?
+### Q: Diff between Object and Object reference ?
+### Q: How payment integration works  ?
+### Q: Write sorting algorithm ? Quick, Merge sort etc ?
+### Q: What is executors ? How it works ?
+### Q: How RecyclerView works ? Use of ViewHolders ?
+### Q: How to send each visible row of RecyclerView data to server ?
+### Q: What are callbacks RecyclerView have ?
+### Q: There is an array. Find the f(frquency) >=length/2
+Array ar=[1,1,2,2,3,5,1]
+f(ar[i]) >=length/2
+### Q: What is synchronous and Asynchronous request ?
+### Q: What is the difference between activity, service and fragment?
+### Q: Explain the MVP architecture in detail.
+### Q: Explain about services in android ?
+### Q: How to create Circular layout like progress bar with colors ?
+### Q: How to sort an array ? What internally it does ?
+### Q: How HashMap works ?
+### Q: How to navigate from one activity to another and how to finish an activity. Given some scenario ?
+### Q: Explain about FCM ?
 
 
 
