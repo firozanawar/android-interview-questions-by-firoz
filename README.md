@@ -91,3 +91,37 @@ The Object class is the parent class of all the classes in java by default.
 Note : finalize method is called just once on an object even though that object is eligible for garbage collection multiple times.
  
 **clone() :** It returns a new object that is exactly the same as this object.
+
+### Q: How to handle concurrent request in android ?
+### Q: Difference between gravity and layout_gravity ?
+### Q: Difference between add and replace in fragment ?
+### Q: Difference between View and ViewGroup ?
+### Q: What do you mean by addToBackStack() in fragment?
+### Q: Difference between StringBuffer and StringBuilder ?
+### Q: Difference between SOAP and REST ?
+### Q: How to pass data between fragments 1. when fragment are in same activity and visible at same time 2. When fragment transition happens from one fragment to another fragments?
+### Q: How to pass data between activities ?
+### Q: Can we pass objects from one to another activity? If yes then how ?
+### Q: Difference between sleep and wait ?
+### Q: What is synchronization in multithreading in java ? Give real time example ?
+### Q: What are third party library you have integrated ?
+### Q: What are Activity life cycle ? Explain each methods's purpose ?
+### Q: What are Fragment life cycle ? Explain each methods's purpose ?
+### Q: How to remove a fragments ? What are the ways/methods ?
+### Q: Difference between service, thread, AsyncTask and intent service ?
+### Q: Can service be called from any other thread ?
+### Q: How listener (e.g click) works in android ?
+### Q: Difference between list and set ?
+
+
+
+
+
+
+
+
+
+
+
+
+
