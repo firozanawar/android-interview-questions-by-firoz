@@ -444,6 +444,14 @@ Questions about layouts in Android. Linear Relative etc.
 ### Q: Star pattern problem
 ### Q: How you can give runtime permission without user knowledge ? Using Accessibility service ? adb shell commands etc ?
 ### Q: Have you ever build android OS? Kernel drivers etc ?
+### Q Difference between Object Oriented and MVP ? 
+### Q Are you aware of Android componets, support libraries and third party libraries?
+### Q Have you ever develop android SDK ? What are things you take care while developing any kind of library ?
+### Q Have you ever worked on VideoPlayer, VideoView and ExoPlayer etc ?
+### Q What is MVP, MVC, MVVP, MVVM ?
+### Q What are the Ads integration you have done ?
+### Q How you handle memory leaks ? and optimisation ?
+
 
 
 
