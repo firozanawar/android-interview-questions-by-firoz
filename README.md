@@ -130,7 +130,21 @@ http://manishkpr.webheavens.com/android-passing-data-between-fragments/
 https://www.tutorialspoint.com/how-to-pass-data-from-one-fragment-to-another-fragment-in-android
 
 ### Q: How to pass data between activities ?
+https://www.dev2qa.com/passing-data-between-activities-android-tutorial/
+
+https://medium.com/@peterekeneeze/passing-data-between-activities-2d0ef122f19d
+
+https://www.survivingwithandroid.com/passing-data-between-activities-2/
+
 ### Q: Can we pass objects from one to another activity? If yes then how ?
+https://stackoverflow.com/questions/2736389/how-to-pass-an-object-from-one-activity-to-another-on-android
+
+https://coderwall.com/p/vfbing/passing-objects-between-activities-in-android
+
+https://www.techjini.com/blog/passing-objects-via-intent-in-android/
+
+https://en.proft.me/2017/02/28/pass-object-between-activities-android-parcelable/
+
 ### Q: Difference between sleep and wait ?
 ### Q: What is synchronization in multithreading in java ? Give real time example ?
 ### Q: What are third party library you have integrated ?
