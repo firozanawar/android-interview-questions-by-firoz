@@ -93,6 +93,14 @@ Note : finalize method is called just once on an object even though that object 
 **clone() :** It returns a new object that is exactly the same as this object.
 
 ### Q: How to handle concurrent request in android ?
+https://medium.com/@ali.muzaffar/using-concurrency-and-speed-and-performance-on-android-d00ab4c5c8e3
+
+https://medium.com/@ali.muzaffar/handlerthreads-and-why-you-should-be-using-them-in-your-android-apps-dc8bf1540341
+
+https://android.jlelse.eu/8-ways-to-do-asynchronous-processing-in-android-and-counting-f634dc6fae4e
+
+https://www.lynda.com/Android-tutorials/Concurrent-programming-Android/560057/580097-4.html
+
 ### Q: Difference between gravity and layout_gravity ?
 ### Q: Difference between add and replace in fragment ?
 ### Q: Difference between View and ViewGroup ?
