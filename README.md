@@ -102,12 +102,33 @@ https://android.jlelse.eu/8-ways-to-do-asynchronous-processing-in-android-and-co
 https://www.lynda.com/Android-tutorials/Concurrent-programming-Android/560057/580097-4.html
 
 ### Q: Difference between gravity and layout_gravity ?
+https://en.proft.me/2017/05/22/understanding-difference-gravity-layout-gravity/
+
 ### Q: Difference between add and replace in fragment ?
 ### Q: Difference between View and ViewGroup ?
+https://stackoverflow.com/questions/27352476/difference-between-view-and-viewgroup-in-android
+
 ### Q: What do you mean by addToBackStack() in fragment?
 ### Q: Difference between StringBuffer and StringBuilder ?
+https://www.journaldev.com/538/string-vs-stringbuffer-vs-stringbuilder
+
+![Alt text](https://2.bp.blogspot.com/-QHIf55P3o2I/W_FZaQ8YuXI/AAAAAAAAMmY/WXb342XKhCQd2iVotRwJ77-XgXSlGcV3gCLcBGAs/s640/String%2Band%2BStringbuffer%2Band%2BStringBuilder.png "Optional title")
+
 ### Q: Difference between SOAP and REST ?
+https://www.guru99.com/comparison-between-web-services.html
+
+https://dzone.com/articles/difference-between-rest-and-soap-api
 ### Q: How to pass data between fragments 1. when fragment are in same activity and visible at same time 2. When fragment transition happens from one fragment to another fragments?
+https://www.journaldev.com/14207/android-passing-data-between-fragments
+
+https://inducesmile.com/android/android-fragment-how-to-pass-data-between-fragments-in-an-activity/
+
+https://www.zoftino.com/passing-data-between-android-fragments-using-viewmodel
+
+http://manishkpr.webheavens.com/android-passing-data-between-fragments/
+
+https://www.tutorialspoint.com/how-to-pass-data-from-one-fragment-to-another-fragment-in-android
+
 ### Q: How to pass data between activities ?
 ### Q: Can we pass objects from one to another activity? If yes then how ?
 ### Q: Difference between sleep and wait ?
