@@ -41,8 +41,16 @@ A process is an instance of a program running in a computer. It is close in mean
 * Threads can exercise considerable control over threads of the same process; processes can only exercise control over child processes.
 * Changes to the main thread (cancellation, priority change, etc.) may affect the behavior of the other threads of the process; changes to the parent process do not affect child processes.
 
+https://www.geeksforgeeks.org/difference-between-process-and-thread/
+
+https://www.geeksforgeeks.org/introduction-of-process-management/
+
+https://www.tutorialspoint.com/operating_system/os_processes.htm
+
+https://www.studytonight.com/operating-system/operating-system-processes
+
 ### Q: What happens when activity rotated ?
-Activity is recreated after each rotation by default and onCreate() method of activity called again. You can override this behaviour with *configChanges* attribute of the activity tag in AndroidManifest.
+Activity is recreated after each rotation by default and onCreate() method of activity called again. You can override this behaviour with *configChanges* attribute of the activity tag in AndroidManifest. Calling setRetainInstance(true) on a Fragment is similar to setting the android:configChanges flag on an Activity. It signals to Android that you want to continue using the same instance of the current Fragment, so all of your member variables will remain untouched.
 
 Life Cycle of orientation:-
 
@@ -59,6 +67,8 @@ onCreate();
 onStart(); 
 
 onResume();
+
+https://medium.com/google-developers/activity-revival-and-the-case-of-the-rotating-device-167e34f9a30d
 
 ### Q: Explain about GCM implementation?
 
@@ -102,6 +112,10 @@ Note : finalize method is called just once on an object even though that object 
  
 **clone() :** It returns a new object that is exactly the same as this object.
 
+https://www.geeksforgeeks.org/object-class-in-java/
+
+https://www.javatpoint.com/object-class
+
 ### Q: How to handle concurrent request in android ?
 https://medium.com/@ali.muzaffar/using-concurrency-and-speed-and-performance-on-android-d00ab4c5c8e3
 
@@ -115,6 +129,8 @@ https://www.lynda.com/Android-tutorials/Concurrent-programming-Android/560057/58
 https://en.proft.me/2017/05/22/understanding-difference-gravity-layout-gravity/
 
 ### Q: Difference between add and replace in fragment ?
+https://developer.android.com/guide/components/fragments
+
 ### Q: Difference between View and ViewGroup ?
 https://stackoverflow.com/questions/27352476/difference-between-view-and-viewgroup-in-android
 
