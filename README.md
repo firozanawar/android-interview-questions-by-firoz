@@ -128,13 +128,24 @@ https://www.lynda.com/Android-tutorials/Concurrent-programming-Android/560057/58
 ### Q: Difference between gravity and layout_gravity ?
 https://en.proft.me/2017/05/22/understanding-difference-gravity-layout-gravity/
 
-### Q: Difference between add and replace in fragment ?
+### Q: Difference between add and replace in fragment ? and What do you mean by addToBackStack() in fragment?
+fragmentTransaction.replace(int containerViewId, Fragment fragment, String tag)
+Description - Replace an existing fragment that was added to a container. This is essentially the same as calling remove(Fragment) for all currently added fragments that were added with the same containerViewId and then add(int, Fragment, String) with the same arguments given here.
+
+fragmentTransaction.add(int containerViewId, Fragment fragment, String tag)
+Description - Add a fragment to the activity state. This fragment may optionally also have its view (if Fragment.onCreateView returns non-null) into a container view of the activity.
+
+One more important difference between add and replace is: replace removes the existing fragment and adds a new fragment. This means when you press back button the fragment that got replaced will be created with its onCreateView being invoked. Whereas add retains the existing fragments and adds a new fragment that means existing fragment will be active and they wont be in 'paused' state hence when a back button is pressed onCreateView is not called for the existing fragment(the fragment which was there before new fragment was added). In terms of fragment's life cycle events onPause, onResume, onCreateView and other life cycle events will be invoked in case of replace but they wont be invoked in case of add.
+
+When we press back button after in case of add()... onCreateView is never called, but in case of replace(), when we press back button ... oncreateView is called every time.
+
 https://developer.android.com/guide/components/fragments
+
+https://stackoverflow.com/questions/18634207/difference-between-add-replace-and-addtobackstack
 
 ### Q: Difference between View and ViewGroup ?
 https://stackoverflow.com/questions/27352476/difference-between-view-and-viewgroup-in-android
 
-### Q: What do you mean by addToBackStack() in fragment?
 ### Q: Difference between StringBuffer and StringBuilder ?
 https://www.journaldev.com/538/string-vs-stringbuffer-vs-stringbuilder
 
@@ -182,7 +193,13 @@ https://en.proft.me/2017/02/28/pass-object-between-activities-android-parcelable
 ### Q: How listener (e.g click) works in android ?
 ### Q: Difference between list and set ?
 ### Q: Difference between COARSE & FINE_LOCATION?
-### Q: why string is immutable in java?
+### Q: Why String is immutable in java?
+https://www.journaldev.com/16928/java-string
+
+https://www.javatpoint.com/java-string
+
+https://www.geeksforgeeks.org/strings-in-java/
+
 ### Q: What is static binding and dynamic binding ?
 ### Q: can interface be final ?
 ### Q: Runtime Polymorphism ?
