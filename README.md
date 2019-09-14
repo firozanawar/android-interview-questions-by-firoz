@@ -183,8 +183,58 @@ https://www.techjini.com/blog/passing-objects-via-intent-in-android/
 https://en.proft.me/2017/02/28/pass-object-between-activities-android-parcelable/
 
 ### Q: Difference between sleep and wait ?
+A wait can be "woken up" by another thread calling notify on the monitor which is being waited on whereas a sleep cannot. Also a wait (and notify) must happen in a block synchronized on the monitor object whereas sleep does not.
+you call wait on Object itself (i.e. you wait on an object's monitor) whereas you call sleep on Thread.
+while sleeping a Thread does not release the locks it holds, while waiting releases the lock on the object that wait() is called on.
+synchronized(LOCK) { Thread.sleep(1000); // LOCK is held } synchronized(LOCK) { LOCK.wait(); // LOCK is not held }
+sleep(n) says “I’m done with my timeslice, and please don’t give me another one for at least n milliseconds.” The OS doesn’t even try to schedule the sleeping thread until requested time has passed. .wait() says “I’m done with my timeslice. Don’t give me another timeslice until someone calls notify().” As with sleep(), the OS won’t even try to schedule your task unless someone calls notify() (or one of a few other wakeup scenarios occurs).
+
+### wait()
+* wait() method releases the lock.
+* wait() is the method of Object class.
+* wait() is the non-static method - public final void wait() throws InterruptedException { //...}
+* wait() should be notified by notify() or notifyAll() methods.
+* wait() method needs to be called from a loop in order to deal with false alarm.
+* wait() method must be called from synchronized context (i.e. synchronized method or block), otherwise it will throw IllegalMonitorStateException
+
+### sleep()
+* sleep() method doesn't release the lock.
+* sleep() is the method of java.lang.Thread class.
+* sleep() is the static method - public static void sleep(long millis, int nanos) throws InterruptedException { //... }
+* after the specified amount of time, sleep() is completed.
+* sleep() better not to call from loop(i.e. see code below).
+* sleep() may be called from anywhere. there is no specific requirement.
 ### Q: What is synchronization in multithreading in java ? Give real time example ?
+When we start two or more threads within a program, there may be a situation when multiple threads try to access the same resource and finally they can produce unforeseen result due to concurrency issues.
+Synchronization in java is the capability to control the access of multiple threads to any shared resource. It allow only one thread to access the shared resource.
+### Why use Synchronization
+The synchronization is mainly used to
+To prevent thread interference. (fight between threads)
+To prevent consistency problem. (abnormal and unexpected value change of resource)
+
+Thread Synchronization
+There are two types of thread synchronization.
+* Mutual Exclusive
+* Cooperation (Inter-thread communication in java)
+### Mutual Exclusive
+Mutual Exclusive helps keep threads from interfering with one another while sharing data. This can be done by three ways in java:
+* by synchronized method
+* by synchronized block
+* by static synchronization
+Example : Multiple threads on single file. Opening,closing and writing etc.
+### Lock in Java
+Synchronization is built around an internal entity known as the lock or monitor. Every object has an lock associated with it. By convention, a thread that needs consistent access to an object's fields has to acquire the object's lock before accessing them, and then release the lock when it's done with them.
+When a thread invokes a synchronized method, it automatically acquires the lock for that object and releases it when the thread completes its task.
+When a thread acquires a lock, it is said to have entered the monitor. All other threads attempting to enter the locked monitor will be suspended until the first thread exits the monitor.
 ### Q: What are third party library you have integrated ?
+* Gson:  Gson is a Java library used for serializing and deserializing Java objects from and into JSON.
+* Retrofit: "Retrofit turns your REST API into a Java interface
+* EventBus
+* Universal Image Loader
+* Volley
+* Picasso
+* ExoPlayer
+* many more...
 ### Q: What are Activity life cycle ? Explain each methods's purpose ?
 ### Q: What are Fragment life cycle ? Explain each methods's purpose ?
 ### Q: How to remove a fragments ? What are the ways/methods ?
