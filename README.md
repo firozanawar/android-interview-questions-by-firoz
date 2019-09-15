@@ -126,6 +126,8 @@ https://android.jlelse.eu/8-ways-to-do-asynchronous-processing-in-android-and-co
 https://www.lynda.com/Android-tutorials/Concurrent-programming-Android/560057/580097-4.html
 
 ### Q: Difference between gravity and layout_gravity ?
+![Alt text](https://i.stack.imgur.com/nymDt.png "Optional title")
+
 https://en.proft.me/2017/05/22/understanding-difference-gravity-layout-gravity/
 
 ### Q: Difference between add and replace in fragment ? and What do you mean by addToBackStack() in fragment?
