@@ -151,6 +151,12 @@ https://stackoverflow.com/questions/27352476/difference-between-view-and-viewgro
 ### Q: Difference between StringBuffer and StringBuilder ?
 https://www.journaldev.com/538/string-vs-stringbuffer-vs-stringbuilder
 
+StringBuffer was the only choice for String manipulation till Java 1.4 but it has one disadvantage that all of its public methods are synchronized. StringBuffer provides Thread safety but on a performance cost.
+
+In most of the scenarios, we don’t use String in a multithreaded environment, so Java 1.5 introduced a new class StringBuilder that is similar to StringBuffer except thread safety and synchronization.
+
+So if you are in a single threaded environment or don’t care about thread safety, you should use StringBuilder else use StringBuffer.
+
 ![Alt text](https://2.bp.blogspot.com/-QHIf55P3o2I/W_FZaQ8YuXI/AAAAAAAAMmY/WXb342XKhCQd2iVotRwJ77-XgXSlGcV3gCLcBGAs/s640/String%2Band%2BStringbuffer%2Band%2BStringBuilder.png "Optional title")
 
 ### Q: Difference between SOAP and REST ?
@@ -188,7 +194,12 @@ https://en.proft.me/2017/02/28/pass-object-between-activities-android-parcelable
 A wait can be "woken up" by another thread calling notify on the monitor which is being waited on whereas a sleep cannot. Also a wait (and notify) must happen in a block synchronized on the monitor object whereas sleep does not.
 you call wait on Object itself (i.e. you wait on an object's monitor) whereas you call sleep on Thread.
 while sleeping a Thread does not release the locks it holds, while waiting releases the lock on the object that wait() is called on.
-synchronized(LOCK) { Thread.sleep(1000); // LOCK is held } synchronized(LOCK) { LOCK.wait(); // LOCK is not held }
+synchronized(LOCK) 
+{ Thread.sleep(1000); // LOCK is held 
+} 
+synchronized(LOCK) 
+{ LOCK.wait(); // LOCK is not held 
+}
 sleep(n) says “I’m done with my timeslice, and please don’t give me another one for at least n milliseconds.” The OS doesn’t even try to schedule the sleeping thread until requested time has passed. .wait() says “I’m done with my timeslice. Don’t give me another timeslice until someone calls notify().” As with sleep(), the OS won’t even try to schedule your task unless someone calls notify() (or one of a few other wakeup scenarios occurs).
 
 ### wait()
@@ -206,6 +217,7 @@ sleep(n) says “I’m done with my timeslice, and please don’t give me anothe
 * after the specified amount of time, sleep() is completed.
 * sleep() better not to call from loop(i.e. see code below).
 * sleep() may be called from anywhere. there is no specific requirement.
+
 ### Q: What is synchronization in multithreading in java ? Give real time example ?
 When we start two or more threads within a program, there may be a situation when multiple threads try to access the same resource and finally they can produce unforeseen result due to concurrency issues.
 Synchronization in java is the capability to control the access of multiple threads to any shared resource. It allow only one thread to access the shared resource.
@@ -576,7 +588,6 @@ Questions about layouts in Android. Linear Relative etc.
 ### Q: Sensors ? How you pass sensors data to UI ?
 ### Q: How to pass data b/w activities and fragments ? How to get result back from activity ?
 ### Q: How to make connection using okhttp instead on Retrofit?
-### Q: Fragment life cycle ?
 ### Q: Diff b/w serializable and parcelable ?
 ### Q: There is an sorted array 5,4,3,2,0,1 shuffled due to some reason. How to find the origin (0) of that array. Take care of complexity?
 ### Q: Star pattern problem
@@ -589,17 +600,3 @@ Questions about layouts in Android. Linear Relative etc.
 ### Q What is MVP, MVC, MVVP, MVVM ?
 ### Q What are the Ads integration you have done ?
 ### Q How you handle memory leaks ? and optimisation ?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
