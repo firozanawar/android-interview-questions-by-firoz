@@ -514,11 +514,46 @@ https://medium.com/@Zhuinden/simplified-fragment-navigation-using-a-custom-backs
 
 https://www.dev2qa.com/android-add-fragment-to-activity-dynamically-example/
 ### Q: Difference between service, thread, AsyncTask and intent service ?
+![Alt text](http://i.stack.imgur.com/N1DNU.png "Optional title")
+
+https://stackoverflow.com/questions/3264383/difference-between-service-async-task-thread
+
 ### Q: Can service be called from any other thread ?
 ### Q: How listener (e.g click) works in android ?
 ### Q: Difference between list and set ?
+http://net-informations.com/java/cjava/list.htm
+
+https://beginnersbook.com/2014/07/difference-between-list-and-set-in-java/
+
+https://www.java67.com/2013/01/difference-between-set-list-and-map-in-java.html
+
 ### Q: Difference between COARSE & FINE_LOCATION?
+Location can be determined by two ways:
+* Using NETWORK_PROVIDER -  ACCESS_COARSE_LOCATION or ACCESS_FINE_LOCATION
+* Using GPS_PROVIDER - ACCESS_FINE_LOCATION
 ### Q: Why String is immutable in java?
+There are multiple reasons that String is designed to be immutable in Java.
+Because java uses the concept of string literal.Suppose there are 5 reference variables,all refers to one object "sachin".If one reference variable changes the value of the object, it will be affected to all the reference variables. That is why string objects are immutable in java.
+
+1. Requirement of String Pool
+String pool (String intern pool) is a special storage area in Java heap. When a string is created and if the string already exists in the pool, the reference of the existing string will be returned, instead of creating a new object and returning its reference.
+If string is not immutable, changing the string with one reference will lead to the wrong value for the other references.
+(or)
+ Caching: when compiler optimizes your String objects, it sees that if two objects have same value (a="test", and b="test") and thus you need only one string object (for both a and b, these two will point to the same object).
+ 
+2. Allow String to Cache its Hashcode
+The hashcode of string is frequently used in Java. For example, in a HashMap. Being immutable guarantees that hashcode will always the same, so that it can be cashed without worrying the changes.That means, there is no need to calculate hashcode every time it is used. This is more efficient.
+(or)
+Since Strings are very popular as HashMap key, it's important for them to be immutable so that they can retrieve the value object which was stored in HashMap. Since HashMap works in the principle of hashing, which requires same has value to function properly. Mutable String would produce two different hashcodes at the time of insertion and retrieval if contents of String was modified after insertion, potentially losing the value object in the map.
+
+3. Security
+String is widely used as parameter for many java classes, e.g. network connection, opening files, etc. Were String not immutable, a connection or file would be changed and lead to serious security threat. The method thought it was connecting to one machine, but was not. Mutable strings could cause security problem in Reflection too, as the parameters are strings.
+
+4. Synchronization and concurrency: making String immutable automatically makes them thread safe thereby solving the synchronization issues.
+
+5. Class loading: String is used as arguments for class loading. If mutable, it could result in wrong class being loaded (because mutable objects change their state).
+In summary, the reasons include design, efficiency, and security.
+
 https://www.journaldev.com/16928/java-string
 
 https://www.javatpoint.com/java-string
@@ -526,17 +561,29 @@ https://www.javatpoint.com/java-string
 https://www.geeksforgeeks.org/strings-in-java/
 
 ### Q: What is static binding and dynamic binding ?
-### Q: can interface be final ?
+* Static binding happens at compile-time while dynamic binding happens at runtime.
+* Binding of private, static and final methods always happen at compile time since these methods cannot be overridden. Binding of overridden methods happen at runtime.
+* Java uses static binding for overloaded methods and dynamic binding for overridden methods.
+### Q: Can interface be final ? and give the Reason?
+No. An interface is a pure abstract class. Hence, all methods in an interface are abstract , and must be implemented in the child classes. So, by extension, none of them can be declared as final. A final method can't be overridden.
+If you declare a class final cannot extend it. If you make a method final you cannot override it and, if you make a variable final you cannot modify it. i.e. use final with Java entities you cannot modify them further.
+
+If you make an interface final, you cannot implement its methods which defies the very purpose of the interfaces. 
+
+https://www.tutorialspoint.com/can-we-declare-an-interface-as-final-in-java
+
 ### Q: Runtime Polymorphism ?
 ### Q: Which of the following is the immediate base class for Activity and Service classes?
-### Q: webservice in android?
+Context
+### Q: Webservice in android?
+A web service is a standard for exchanging information between different types of applications irrespective of language and platform. For example, an android application can interact with java or .net application using web services.
+Web services are open standard (XML, SOAP, HTTP etc.) based Web applications that interact with other web applications for the purpose of exchanging data.
+
 ### Q: How RecyclerView works with Android ?
-### Q: How HashMap works ?
-### Q: How HashMap works?
+### Q: How HashMap works ?Why we go for HashMap ?
 ### Q: How to update textview from intentservice ?
 ### Q: What is handler and how it works?
 ### Q: What is onNewIntent()?
-### Q: Why we go for HashMap ?
 ### Q: What is time and space complexity?
 ### Q: Alarm Manager ? 
 ### Q: Job scheduler?
