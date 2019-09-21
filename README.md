@@ -477,8 +477,42 @@ When a thread acquires a lock, it is said to have entered the monitor. All other
 * ExoPlayer
 * many more...
 ### Q: What are Activity life cycle ? Explain each methods's purpose ?
+https://developer.android.com/guide/components/activities/activity-lifecycle
+
+https://blog.mindorks.com/android-activity-lifecycle
+
+https://guides.codepath.com/android/Activity-Lifecycle
+
+https://github.com/xxv/android-lifecycle
+
+https://www.oreilly.com/library/view/head-first-android/9781449362171/ch04.html
+
+https://medium.com/androiddevelopers/the-android-lifecycle-cheat-sheet-part-i-single-activities-e49fd3d202ab
+
+https://codelabs.developers.google.com/codelabs/android-training-activity-lifecycle-and-state/#2
 ### Q: What are Fragment life cycle ? Explain each methods's purpose ?
+
+https://developer.android.com/guide/components/fragments
+
+https://blog.mindorks.com/android-fragments-and-its-lifecycle
+
+https://medium.com/androiddevelopers/the-android-lifecycle-cheat-sheet-part-iii-fragments-afc87d4f37fd
+
+https://google-developer-training.github.io/android-developer-advanced-course-concepts/unit-1-expand-the-user-experience/lesson-1-fragments/1-2-c-fragment-lifecycle-and-communications/1-2-c-fragment-lifecycle-and-communications.html
+
+https://www.techyourchance.com/android-fragment-lifecycle-for-professional-developers/
+
+http://landenlabs.com/android/info/activity-life-cycle/activity-life-cycle.html
+
+https://proandroiddev.com/android-fragments-common-queries-common-mistakes-df2014da0b50
 ### Q: How to remove a fragments ? What are the ways/methods ?
+https://stackoverflow.com/questions/38864271/remove-fragment-from-activity-when-clicking-button?rq=1
+
+https://www.intertech.com/Blog/programmatically-working-with-android-fragments/
+
+https://medium.com/@Zhuinden/simplified-fragment-navigation-using-a-custom-backstack-552e06961257
+
+https://www.dev2qa.com/android-add-fragment-to-activity-dynamically-example/
 ### Q: Difference between service, thread, AsyncTask and intent service ?
 ### Q: Can service be called from any other thread ?
 ### Q: How listener (e.g click) works in android ?
