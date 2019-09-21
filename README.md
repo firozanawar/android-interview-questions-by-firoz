@@ -79,7 +79,6 @@ The Object class is the parent class of all the classes in java by default.
 * The Object class is beneficial if you want to refer any object whose type you don't know. Notice that parent class reference variable can refer the child class object, know as upcasting.
 * Object class is present in java.lang package.
 * Object class methods are available to all Java classes.
-* There are 11 methods in Object class:
 
 | Method | Description |
 | --- | --- |
@@ -131,15 +130,243 @@ https://www.lynda.com/Android-tutorials/Concurrent-programming-Android/560057/58
 https://en.proft.me/2017/05/22/understanding-difference-gravity-layout-gravity/
 
 ### Q: Difference between add and replace in fragment ? and What do you mean by addToBackStack() in fragment?
-fragmentTransaction.replace(int containerViewId, Fragment fragment, String tag)
+#### fragmentTransaction.replace(int containerViewId, Fragment fragment, String tag)
+
 Description - Replace an existing fragment that was added to a container. This is essentially the same as calling remove(Fragment) for all currently added fragments that were added with the same containerViewId and then add(int, Fragment, String) with the same arguments given here.
 
-fragmentTransaction.add(int containerViewId, Fragment fragment, String tag)
+#### fragmentTransaction.add(int containerViewId, Fragment fragment, String tag)
+
 Description - Add a fragment to the activity state. This fragment may optionally also have its view (if Fragment.onCreateView returns non-null) into a container view of the activity.
 
 One more important difference between add and replace is: replace removes the existing fragment and adds a new fragment. This means when you press back button the fragment that got replaced will be created with its onCreateView being invoked. Whereas add retains the existing fragments and adds a new fragment that means existing fragment will be active and they wont be in 'paused' state hence when a back button is pressed onCreateView is not called for the existing fragment(the fragment which was there before new fragment was added). In terms of fragment's life cycle events onPause, onResume, onCreateView and other life cycle events will be invoked in case of replace but they wont be invoked in case of add.
 
 When we press back button after in case of add()... onCreateView is never called, but in case of replace(), when we press back button ... oncreateView is called every time.
+
+**Case1:-  Add a fragment to an activity without backstack, and press back button.**
+
+MainActivity onCreate 
+
+FirstFragment onAttach
+
+FirstFragment onCreate
+
+FirstFragment onCreateView
+
+FirstFragment onActivityCreated
+
+MainActivity onStart
+
+FirstFragment onStart
+
+MainActivity onResume
+
+FirstFragment onResume
+
+—-> Back button pressed, activity destroyed
+
+FirstFragment onPause
+
+MainActivity onPause
+
+FirstFragment onStop
+
+MainActivity onStop
+
+FirstFragment onDestroyView
+
+FirstFragment onDestroy
+
+FirstFragment onDetach
+
+MainActivity onDestroy
+
+
+
+**Case2:-  Add a fragment to an activity with backstack, and press back button.**
+
+MainActivity onCreate 
+
+FirstFragment onAttach
+
+FirstFragment onCreate
+
+FirstFragment onCreateView
+
+FirstFragment onActivityCreated
+
+MainActivity onStart
+
+FirstFragment onStart
+
+MainActivity onResume
+
+FirstFragment onResume
+
+—-> Back button pressed, fragment removed, activity visible
+
+FirstFragment onPause
+
+FirstFragment onStop
+
+FirstFragment onDestroyView
+
+FirstFragment onDestroy
+
+FirstFragment onDetach
+
+—-> Back button pressed again, activity dismissed
+
+MainActivity onPause
+
+MainActivity onStop
+
+MainActivity onDestroy
+
+
+
+**Case3:- Add a fragment on top of another ADDED fragment with backstack,**
+
+MainActivity onCreate 
+
+FirstFragment onAttach
+
+FirstFragment onCreate
+
+FirstFragment onCreateView
+
+FirstFragment onActivityCreated
+
+MainActivity onStart
+
+FirstFragment onStart
+
+MainActivity onResume
+
+FirstFragment onResume
+
+—> Add the another fragment
+
+SecondFragment onAttach
+
+SecondFragment onCreate
+
+SecondFragment onCreateView
+
+SecondFragment onActivityCreated
+
+SecondFragment onStart
+
+SecondFragment onResume
+
+—> Now back press, second fragment popped, first showing now.
+
+SecondFragment onPause
+
+SecondFragment onStop
+
+SecondFragment onDestroyView
+
+SecondFragment onDestroy
+
+SecondFragment onDetach
+
+—> back press again, activity dismissed
+
+FirstFragment onPause
+
+MainActivity onPause
+
+FirstFragment onStop
+
+MainActivity onStop
+
+FirstFragment onDestroyView
+
+FirstFragment onDestroy
+
+FirstFragment onDetach
+
+MainActivity onDestroy
+
+
+
+**Case4:- Replaced a fragment on top of another ADDED fragment with backstack,**
+
+MainActivity onCreate 73
+
+FirstFragment onAttach
+
+FirstFragment onCreate
+
+FirstFragment onCreateView
+
+FirstFragment onActivityCreated
+
+MainActivity onStart
+
+FirstFragment onStart
+
+MainActivity onResume
+
+FirstFragment onResume
+
+—-> Replace second fragment with backstack
+
+SecondFragment onAttach
+
+SecondFragment onCreate
+
+SecondFragment onCreateView
+
+SecondFragment onActivityCreated
+
+SecondFragment onStart
+
+SecondFragment onResume
+
+FirstFragment onPause
+
+FirstFragment onStop
+
+FirstFragment onDestroyView
+
+—-> Back press, pop second fragment and show first one.
+
+FirstFragment onCreateView
+
+FirstFragment onActivityCreated
+
+FirstFragment onStart
+
+FirstFragment onResume
+
+SecondFragment onPause
+
+SecondFragment onStop
+
+SecondFragment onDestroyView
+
+SecondFragment onDestroy
+
+SecondFragment onDetach
+
+—-> back press again activity dismissed.
+
+FirstFragment onPause
+
+MainActivity onPause
+
+FirstFragment onStop
+
+MainActivity onStop
+
+FirstFragment onDestroyView
+
+FirstFragment onDestroy
+
+FirstFragment onDetach
+
+MainActivity onDestroy
 
 https://developer.android.com/guide/components/fragments
 
