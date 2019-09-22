@@ -580,7 +580,51 @@ A web service is a standard for exchanging information between different types o
 Web services are open standard (XML, SOAP, HTTP etc.) based Web applications that interact with other web applications for the purpose of exchanging data.
 
 ### Q: How RecyclerView works with Android ?
+Google released RecyclerView alongside CardView and Design Support Library in 2014 with the launch of Android Lollipop. 
+The other benefits that RecyclerView provides over ListView include Layout Manager, Item Decoration and Item Animator.
+
+RecyclerView handles a View by marking it either recycled or scraped. A recycled view is the view that has already been inflated and can be put in the cache for later reuse with or without new data binding. A scrap view on the other hand is the view that was detached from the layout at the time of creating, or rather a view that didn't become dirty during previous use. Think of it as a static view. Now, if there is a need for it, RecyclerView will use it with or without data binding. The benefit that a scrap view offers is that we can have a view in the system but there isn't any performance overhead with it when it's not being used
+
+https://contextneutral.com/story/understanding-recyclerview-part-1-the-basics
+
+https://android.jlelse.eu/understanding-recyclerview-a-high-level-insight-part-1-dc3f81af5720
+
+https://android.jlelse.eu/understanding-recyclerview-components-part-2-1fd43001a98f
+
+https://www.quora.com/What-is-RecyclerView-in-Android-and-how-does-it-work
 ### Q: How HashMap works ?Why we go for HashMap ?
+HashMap is a part of collection in Java since 1.2. It provides the basic implementation of Map interface of Java. It stores the data in (Key,Value) pairs. To access a value you must know its key, otherwise you can’t access it. HashMap is known as HashMap because it uses a technique Hashing.[ Hashing](http://quiz.geeksforgeeks.org/hashing-set-1-introduction/) is a technique of converting a large String to small String that represents same String. A shorter value helps in indexing and faster searches.
+
+Few important features of HashMap are:
+
+- HashMap is a part of java.util package.
+- HashMap extends an abstract class AbstractMap which also provides an incomplete implementation of Map interface.
+- It also implements [Cloneable](https://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html) and [Serializable](https://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html) interface. K and V in the above definition represent Key and Value respectively.
+- HashMap doesn’t allow duplicate keys but allows duplicate values. That means A single key can’t contain more than 1 value but more than 1 key can contain a single value.
+- HashMap allows null key also but only once and multiple null values.
+- This class makes no guarantees as to the order of the map; in particular, it does not guarantee that the order will remain constant over time. It is roughly similar to HashTable but is unsynchronized.
+
+**Internal Structure of HashMap**
+
+Internally HashMap contains an array of Node. and a node is represented as a class which contains 4 fields :
+
+1. int hash
+2. K key
+3. V value
+4. Node next
+
+https://www.javatpoint.com/working-of-hashmap-in-java
+
+https://www.geeksforgeeks.org/java-util-hashmap-in-java-with-examples/
+
+https://www.geeksforgeeks.org/internal-working-of-hashmap-java/
+
+https://www.youtube.com/watch?v=CojCE-ojdGY
+
+https://www.youtube.com/watch?v=fSjxhOYPBRI
+
+https://www.youtube.com/watch?v=c3RVW3KGIIE
+
 ### Q: How to update textview from intentservice ?
 ### Q: What is handler and how it works?
 ### Q: What is onNewIntent()?
