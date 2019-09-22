@@ -626,8 +626,45 @@ https://www.youtube.com/watch?v=fSjxhOYPBRI
 https://www.youtube.com/watch?v=c3RVW3KGIIE
 
 ### Q: How to update textview from intentservice ?
-### Q: What is handler and how it works?
+
+https://medium.com/@anitaa_1990/how-to-update-an-activity-from-background-service-or-a-broadcastreceiver-6dabdb5cef74
+
+https://proandroiddev.com/intentservice-and-resultreceiver-70de71e5e40a
+
+https://www.tutorialspoint.com/how-to-update-ui-from-intent-service-in-android
+
+https://www.websmithing.com/2011/02/01/how-to-update-the-ui-in-an-android-activity-using-data-from-a-background-service/
+
+https://www.mysamplecode.com/2011/10/android-intentservice-example-using.html
+
+https://www.journaldev.com/20735/android-intentservice-broadcastreceiver
+### Q: What is Handler and how it works?
+
+https://medium.com/@ankit.sinhal/handler-in-android-d138c1f4980e
+
+https://blog.mindorks.com/android-core-looper-handler-and-handlerthread-bd54d69fe91a
+
+https://stackoverflow.com/questions/13954611/android-when-should-i-use-a-handler-and-when-should-i-use-a-thread
+
+http://coderzpassion.com/what-is-the-use-of-handler-in-android/
+
+https://www.youtube.com/watch?v=TN-CGfzvBhc
+
+https://en.proft.me/2017/04/15/understanding-handler-android/
+
+https://blog.nikitaog.me/2014/10/11/android-looper-handler-handlerthread-i/
+
 ### Q: What is onNewIntent()?
+This is called for activities that set launchMode to "singleTop" in their package, or if a client used the FLAG_ACTIVITY_SINGLE_TOP flag when calling startActivity(Intent). If you set to single top, the activity will not be launched if it is already running at the top of the history stack. It will not relaunch just show from stack.
+
+https://developer.android.com/guide/components/activities/tasks-and-back-stack.html
+
+http://www.helloandroid.com/tutorials/communicating-between-running-activities
+
+https://justanapplication.wordpress.com/tag/onnewintent/
+
+https://medium.com/@ankit.sinhal/understand-activity-launch-mode-with-examples-721e85b6421e
+
 ### Q: What is time and space complexity?
 ### Q: Alarm Manager ? 
 ### Q: Job scheduler?
