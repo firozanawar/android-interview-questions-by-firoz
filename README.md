@@ -654,6 +654,8 @@ https://en.proft.me/2017/04/15/understanding-handler-android/
 
 https://blog.nikitaog.me/2014/10/11/android-looper-handler-handlerthread-i/
 
+https://pierrchen.blogspot.com/2015/08/android-concurrent-programming-looper.html
+
 ### Q: What is onNewIntent()?
 This is called for activities that set launchMode to "singleTop" in their package, or if a client used the FLAG_ACTIVITY_SINGLE_TOP flag when calling startActivity(Intent). If you set to single top, the activity will not be launched if it is already running at the top of the history stack. It will not relaunch just show from stack.
 
@@ -667,8 +669,85 @@ https://medium.com/@ankit.sinhal/understand-activity-launch-mode-with-examples-7
 
 ### Q: What is time and space complexity?
 ### Q: Alarm Manager ? 
+This class provides access to the system alarm services. These allow you to schedule your application to be run at some point in the future. Registered alarms are retained while the device is asleep (and can optionally wake the device up if they go off during that time), but will be cleared if it is turned off and rebooted.
+The Alarm Manager holds a CPU wake lock as long as the alarm receiver's onReceive() method is executing. 
+Alarms do not fire when the device is idle in Doze mode
+To start an Alarm Manager you need to first get the instance from the System. Then pass the PendingIntent which would get executed at a future time that you specify.
+
+Disadvantage:-
+* Consume battery
+
+https://www.javatpoint.com/android-alarmmanager
+
+https://www.journaldev.com/27681/android-alarmmanager-broadcast-receiver-and-service
+
+https://codelabs.developers.google.com/codelabs/android-training-alarm-manager/index.html?index=..%2F..android-training#0
+
+https://android.jlelse.eu/using-alarmmanager-like-a-pro-20f89f4ca720
+
+https://www.androhub.com/android-alarmmanager/
+
+https://androidclarified.com/android-example-alarm-manager-complete-working/
+
 ### Q: Job scheduler?
-### Q: what is doze mode?
+JobScheduler is an API for scheduling various types of jobs against the framework that will be executed in your application's own process. While a job is running, the system holds a wakelock on behalf of your app. For this reason, you do not need to take any action to guarantee that the device stays awake for the duration of the job.
+Apps can schedule jobs while letting the system optimize based on memory, power, and connectivity conditions. The Android 5.0 Lollipop (API 21) release introduces a job scheduler API via the JobScheduler class.
+
+*  the JobScheduler supports batch scheduling of jobs.
+*  It also survives application restarts. 
+* Jobs can be done when Wifi, power connect etc constraints  conditions
+
+* JobService will run on the main thread
+* Your JobService is actually going to be a Service that extends the JobService class. 
+* onStartJob() is called by the system when it is time for your job to execute.
+* jobFinished() requires two parameters: the current job, so that it knows which wakelock can be released, and a boolean indicating whether you’d like to reschedule the job. 
+
+There’s only three things you need to do:
+1. Create a JobService to handle your job
+2. Add that JobService to the manifest
+3. Schedule your job using a JobInfo object to define your conditions
+
+a. To create JobService, you need to extend JobService class and implement its methods onStartJob and onStopJob. These call back methods return boolean value, false indicates that the job is complete and true tells that job is still running in the background, in this case you need to call jobFinished method to inform job scheduler about the finished state after the job is complete.
+
+b.  To schedule a job, first you need to get JobScheduler instance by calling getSystemService on the context object passing JOB_SCHEDULER_SERVICE argument to it.
+JobScheduler jobScheduler = (JobScheduler)getApplicationContext()
+.getSystemService(JOB_SCHEDULER_SERVICE);
+
+ComponentName componentName = new ComponentName(this,
+        DownloadJobService.class);
+
+JobInfo jobInfoObj = new JobInfo.Builder(1, componentName)
+.setPeriodic(50000).setRequiresBatteryNotLow(true).build();
+
+jobScheduler.schedule(jobInfo);
+
+c.  To create a job that needs to be rerun if it fails, you need to use setBackOffCriteria() method passing time interval for the first time retry and retry policy which is used to calculate time interval for retries after first retry.
+JobInfo jobInfoObj = new JobInfo.Builder(1, componentName)
+      .setBackoffCriteria(6000, JobInfo.BACKOFF_POLICY_LINEAR).build();
+
+d.  To create a job that stays as scheduled even after device reboots, you need call setPersisted() method on JobInfo.Builder passing true as value to it. This setting requires RECEIVE_BOOT_COMPLETED permission.
+
+https://www.vogella.com/tutorials/AndroidTaskScheduling/article.html
+
+https://www.zoftino.com/android-job-scheduler-example
+
+https://blog.teamtreehouse.com/scheduling-work-jobscheduler
+
+https://android.jlelse.eu/easy-job-scheduling-with-android-job-4a2c020b9742
+
+https://www.intertech.com/Blog/android-development-tutorial-job-scheduler/
+
+### Q: What is doze mode?
+Doze mode is a feature in Marshmallow, which prevents certain tasks from running if your device is in idle state. Doze in devices reduces power consumption by deferring background CPU and Network activity for applications.
+
+https://developer.android.com/training/monitoring-device-state/doze-standby
+
+https://medium.com/mindorks/you-have-to-know-more-about-doze-mode-3d80f016f8ad
+
+https://android.jlelse.eu/doze-and-app-standby-android-89ef1690742a
+
+https://www.bignerdranch.com/blog/diving-into-doze-mode-for-developers/
+
 ### Q: Reverse  a sack ? reverse and array ?
 ### Q: How to create your own Event bus?
 ### Q: YouTube Player API ?
