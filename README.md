@@ -790,11 +790,10 @@ http://www.indelible.org/ink/android-linkify/
 A class that is declared with abstract keyword, is known as abstract class in java. It can have abstract and non-abstract methods (method with body). Achieve abstraction in java using abstract class.
 No. abstract method can’t be final because it has to overridden by other class.
 
-### Q: minimum screen measurement ? 720p, 1024p,240p
 ### Q: Remote FactoryClass?
 ### Q: do Content provider uses the shared preferences?
-### Q: find middle element of linkedlist?
-### Q: fail pass?
+No
+
 ### Q: If two fragment A& B. if B replace A what would be life cycle?
 https://androidlearnersite.wordpress.com/2017/02/27/fragment-lifecycle-during-fragment-transaction/
 
@@ -803,10 +802,90 @@ https://stackoverflow.com/questions/42218546/understanding-fragments-lifecycle-m
 https://stackoverflow.com/questions/12154157/fragment-methods-attach-detach-remove-replace-popbackstack
 
 ### Q: A & B two fragment in same activity same time. How to pass the data?
-### Q: GCM push notification implementation?
-### Q: how to find unique element in array?
+* Using interface callbacks.
+* Event bus
+* ViewModel
 ### Q: What is Alarm Manager ? Q: Advantages of  Alarm Manager ?Disadvantages?
+Android AlarmManager allows you to access system alarm.
+AlarmManager has access to the system alarm services. With the help of AlarmManager you can schedule execution of code in future. AlarmManager object can’t instantiate directly however it can be retrieved by calling Context.getSystemService(Context.ALARM_SERVICE). 
+
+AlarmManager is always registered with intent. When an alarm goes off, the Intent which has been registered with AlarmManager, is broadcasted by the system automatically. This intent starts the target application if it is not running. It is recommended to use AlarmManager when you want your application code to be run at a specific time, even if your application is not currently running. For other timing operation handler should be used because it is easy to use.
+
+Intent intent = new Intent(this, MyBroadcastReceiver.class);  
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(  
+                                      this.getApplicationContext(), 234324243, intent, 0);  
+                                      
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE); 
+        
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()  
+                                      + (i * 1000), pendingIntent);  
+                                      
+        Toast.makeText(this, "Alarm set in " + i + " seconds",Toast.LENGTH_LONG).show();
+ 
+#### Advantages of  Alarm Manager ?
+It will run even when the device is on sleep mode. Handler will not work on standby.
+may need to run or repeat beyond the scope of its lifecycle. This allows the application to perform some function even after the application process or all of its Android components have been cleaned up by the system.
+have the ability to wake up the device when it is asleep if the alarm is urgent.
+The benefits of the AlarmManager come into play when using inexact intervals or times to fire off Services. The Android system tries to batch alarms with similar intervals or times together in order to preserve battery life.
+AlarmManager is a great candidate for scheduling if an application needs to perform a local event at an exact time or inexact interval.
+ 
+#### Disadvantages of  Alarm Manager ?
+consume more battery because it will wake up CPU and other chips
+Some time fired multiple times.
+One concern to consider while using the AlarmManager is that alarms are wiped out during device reboots. Applications need to register the RECEIVE_BOOT_COMPLETE permission in their Android Manifest and reschedule their alarms in a BroadcastReceiver.
+setting an exact time for an application to sync with a server could put high strain on a server
+documentation discourages using AlarmManager for scheduling network-related tasks.
+
 ### Q: Job scheduler ? Advantages?
+The JobScheduler supports batch scheduling of jobs. The Android system can combine jobs so that battery consumption is reduced. JobManager makes handling uploads easier as it handles automatically the unreliability of the network. It also survives application restarts.
+Here are example when you would use this job scheduler:
+Tasks that should be done once the device is connect to a power supply
+Tasks that require network access or a Wi-Fi connection.
+Task that are not critical or user facing
+Tasks that should be running on a regular basis as batch where the timing is not critical.
+Implementation :
+To implement a Job, extend the JobService class and implement the onStartJob and onStopJob. If the job fails for some reason, return true from on the onStopJob to restart the job. The onStartJob is performed in the main thread, if you start asynchronous processing in this method, return true otherwise false.
+The new JobService must be registered in the Android manifest with the BIND_JOB_SERVICE permission.
+// schedule the start of the service every 10 - 30 seconds
+    public static void scheduleJob(Context context) {
+        ComponentName serviceComponent = new ComponentName(context, TestJobService.class);
+        JobInfo.Builder builder = new JobInfo.Builder(0, serviceComponent);
+        builder.setMinimumLatency(1 * 1000); // wait at least
+        builder.setOverrideDeadline(3 * 1000); // maximum delay
+        //builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED); // require unmetered network
+        //builder.setRequiresDeviceIdle(true); // device should be idle
+        //builder.setRequiresCharging(false); // we don't care if the device is charging or not
+        JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
+        jobScheduler.schedule(builder.build());
+    }
+Util.scheduleJob(context);
+public class TestJobService extends JobService {
+    private static final String TAG = "SyncService";
+
+    @Override
+    public boolean onStartJob(JobParameters params) {
+        Intent service = new Intent(getApplicationContext(), LocalWordService.class);
+        getApplicationContext().startService(service);
+        Util.scheduleJob(getApplicationContext()); // reschedule the job
+        return true;
+    }
+
+    @Override
+    public boolean onStopJob(JobParameters params) {
+        return true;
+    }
+
+}
+#### Advantages and disadvantages:
+scheduled jobs persist through system reboots.
+Disadva - it’s compatible only with API level 21 (Lollypop) and higher.
+References:
+http://toastdroid.com/2015/02/21/how-to-use-androids-job-scheduler/
+
+http://www.vogella.com/tutorials/AndroidTaskScheduling/article.html
+
+https://code.tutsplus.com/tutorials/using-the-jobscheduler-api-on-android-lollipop--cms-23562
 ### Q: What is handler ? & Handler Vs Thread?
 ### Q: When to use AsyncTask, Handler, Service?
 ### Q: Linkedlist intersecting point ?
@@ -818,8 +897,7 @@ https://stackoverflow.com/questions/12154157/fragment-methods-attach-detach-remo
 ### Q: How to create optimise listview with images?
 ### Q: what is getView()?
 ### Q: launch mode in android?
-### Q: what is gravity and layout_gravity ?
-### Q: how to dra X on right top corner on any dialog?
+### Q: how to draw X on right top corner on any dialog?
 ### Q: What is searching techniques ?
 ### Q: What is sorting ? explain some sorting techniques and write programs?
 ### Q: What is pendingintent?
@@ -1006,7 +1084,6 @@ f(ar[i]) >=length/2
 ### Q: How to display a toast in activity from a button click on fragment ? How to find instance of fragment in an activity ?
 ### Q: What is difference between RecyclerView and ListView ? How they works ? What is ViewHolder pattern ?
 ### Q: What is the difference between recycler view and list view?
-### Q: About activity lifecycle ?
 ### Q: How would you pass data from 5 activities to one activity. Large chunks of data.
 ### Q: How do you pass data in Android ?
 ### Q: Intent use pass by value or reference.
@@ -1104,3 +1181,6 @@ Questions about layouts in Android. Linear Relative etc.
 ### Q How you handle memory leaks ? and optimisation ?
 ### Q: Reverse  a stack ? reverse and array ?
 ### Q: What is complexity of HashMap with node n?
+### Q: Find middle element of linkedlist?
+### Q: fail pass in DS?
+### Q: How to find unique element in array?
