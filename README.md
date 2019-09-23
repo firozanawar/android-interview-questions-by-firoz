@@ -748,26 +748,60 @@ https://android.jlelse.eu/doze-and-app-standby-android-89ef1690742a
 
 https://www.bignerdranch.com/blog/diving-into-doze-mode-for-developers/
 
-### Q: Reverse  a sack ? reverse and array ?
 ### Q: How to create your own Event bus?
+Useing the Observer pattern you can design your event bus. 
+
 ### Q: YouTube Player API ?
-### Q: What is complexity of HashMap with node n?
+
+https://developers.google.com/youtube/android/player/
+
+https://www.sitepoint.com/using-the-youtube-api-to-embed-video-in-an-android-app/
+
+https://www.androidhive.info/2014/12/how-to-play-youtube-video-in-android-app/
+
+http://stacktips.com/tutorials/android/youtube-android-player-api-example
+
 ### Q: Problem with Alarm Manager?
+* More battery consuming
+* not accurate or doesn't gurantee
+* on some API it doesn't work properly.
 ### Q: What is order of process in android ? Foregorund->visible----------------->Empty
+https://medium.com/google-developers/who-lives-and-who-dies-process-priorities-on-android-cb151f39044f
+
+http://www.techotopia.com/index.php/Understanding_Android_Application_and_Activity_Lifecycles
 ### Q: Access level of content provider?
 ### Q: Synchronization in singlton class ?
-### Q: listview for generic screens?
+### Q: Listview for generic screens?
 ### Q: linkify class?
+Linkify take a piece of text and a regular expression and turns all of the regex matches in the text into clickable links. This is particularly useful for matching things like email addresses, web URLs, etc. and making them actionable. Alone with the pattern that is to be matched, a URL scheme prefix is also required. Any pattern match that does not begin with the supplied scheme will have the scheme prepended to the matched text when the clickable URL is created. For instance, if you are matching web URLs you would supply the scheme http://. If the pattern matches example.com, which does not have a URL scheme prefix, the supplied scheme will be prepended to create http://example.com when the clickable URL link is created. 
+
+https://developer.android.com/reference/android/text/util/Linkify.html
+
+http://www.sanfoundry.com/java-andorid-program-demonstrate-linkify-class/
+
+http://www.aviyehuda.com/blog/2011/01/27/android-creating-links-using-linkfy/
+
+https://android-developers.googleblog.com/2008/03/linkify-your-text.html
+
+http://www.indelible.org/ink/android-linkify/
+
 ### Q: xhdpi which API level ?
-### Q: fragment life cycle?
-### Q: activity life cycle?
-### Q: abstract class ? can abstract method be final ?
+### Q: Abstract class ? can abstract method be final ?
+A class that is declared with abstract keyword, is known as abstract class in java. It can have abstract and non-abstract methods (method with body). Achieve abstraction in java using abstract class.
+No. abstract method can’t be final because it has to overridden by other class.
+
 ### Q: minimum screen measurement ? 720p, 1024p,240p
 ### Q: Remote FactoryClass?
-### Q: content provider uses the shared preferences?
+### Q: do Content provider uses the shared preferences?
 ### Q: find middle element of linkedlist?
 ### Q: fail pass?
 ### Q: If two fragment A& B. if B replace A what would be life cycle?
+https://androidlearnersite.wordpress.com/2017/02/27/fragment-lifecycle-during-fragment-transaction/
+
+https://stackoverflow.com/questions/42218546/understanding-fragments-lifecycle-methods-calls-during-fragment-transaction
+
+https://stackoverflow.com/questions/12154157/fragment-methods-attach-detach-remove-replace-popbackstack
+
 ### Q: A & B two fragment in same activity same time. How to pass the data?
 ### Q: GCM push notification implementation?
 ### Q: how to find unique element in array?
@@ -1068,3 +1102,5 @@ Questions about layouts in Android. Linear Relative etc.
 ### Q What is MVP, MVC, MVVP, MVVM ?
 ### Q What are the Ads integration you have done ?
 ### Q How you handle memory leaks ? and optimisation ?
+### Q: Reverse  a stack ? reverse and array ?
+### Q: What is complexity of HashMap with node n?
