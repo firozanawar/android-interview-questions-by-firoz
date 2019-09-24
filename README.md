@@ -887,16 +887,69 @@ http://www.vogella.com/tutorials/AndroidTaskScheduling/article.html
 
 https://code.tutsplus.com/tutorials/using-the-jobscheduler-api-on-android-lollipop--cms-23562
 ### Q: What is handler ? & Handler Vs Thread?
+both execute task asynchronously without blocking your current code,
+
+The difference: Imagine you have a Runnable r = new Runnable{...}
+
+When you use new Thread(r).start(), you actually created a new thread and run task asynchronously.
+
+When you use new Handler().post(r) (or Message), you added the Runnable object to Looper and execute the code later in the same thread.
+
+A Thread, generally MainThread or UIThread contains a Looper. When MainThread runs, it will loop the Looper and execute Runnable one by one.
+
+When Thread is preferred:
+
+When you're doing a heavy work like network communication, or decoding large bitmap files, a new thread is preferred. If a lot of thread is needed, maybe ExecutorService is preferred further. https://developer.android.com/reference/java/util/concurrent/ExecutorService.html
+
+When Handler is preferred:
+
+When you want to update UI objects (like TextView text) from other thread, it is necessary that UI objects could only be updated in UI Thread. Also, when you just want to run some light code later (like the delay for 300ms) you can use Handler because it's lighter and faster.
+With handler you can also have things like MessageQueuing, scheduling and repeating.
+
+Please also refer to Handler vs AsyncTask vs Thread
 ### Q: When to use AsyncTask, Handler, Service?
+https://stackoverflow.com/questions/6964011/handler-vs-asynctask-vs-thread
+
+https://tutorial.eyehunts.com/android/deference-between-handler-asynctask-thread-android/
+
+https://www.slideshare.net/HoangNgoBuu/android-thread-handler-and-asynctask
+
+https://blog.mindorks.com/android-core-looper-handler-and-handlerthread-bd54d69fe91a
 ### Q: Linkedlist intersecting point ?
 ### Q: Singleton ?
 ### Q:  Array to find unique element?
 ### Q: Message and looper?
+https://blog.mindorks.com/android-core-looper-handler-and-handlerthread-bd54d69fe91a
+
 ### Q: How Asynctask internally works? Create your own asynctask?
+https://medium.com/@thiagoqvalle/an-inner-look-into-asynctask-7d87957941f3
+
+https://stackoverflow.com/questions/10480599/how-asynctask-works-in-android
+
+https://www.slideshare.net/blrdroid/internals-of-asynctask
+
+https://codetheory.in/android-asynctask/
+
+https://androidresearch.wordpress.com/2012/03/17/understanding-asynctask-once-and-forever/
+
 ### Q: difference between Thread and service?
 ### Q: How to create optimise listview with images?
 ### Q: what is getView()?
-### Q: launch mode in android?
+### Q: Launch mode in android?
+
+https://medium.com/@iammert/android-launchmode-visualized-8843fc833dbe
+
+https://blog.mindorks.com/android-activity-launchmode-explained-cbc6cf996802
+
+https://medium.com/mindorks/android-launch-mode-787d28952959
+
+https://medium.com/@ankit.sinhal/understand-activity-launch-mode-with-examples-721e85b6421e
+
+https://medium.com/@kkunalandroid/launch-mode-in-android-a3f88afeee37
+
+https://android.jlelse.eu/android-activity-launch-mode-e0df1aa72242
+
+https://medium.com/@inzimamislam/android-launch-mode-8ba7d7660526
 ### Q: how to draw X on right top corner on any dialog?
 ### Q: What is searching techniques ?
 ### Q: What is sorting ? explain some sorting techniques and write programs?
