@@ -933,10 +933,25 @@ https://codetheory.in/android-asynctask/
 https://androidresearch.wordpress.com/2012/03/17/understanding-asynctask-once-and-forever/
 
 ### Q: difference between Thread and service?
+* Service - if it is destroyed while performing its job, in the middle by Android due to low memory scenario. Then android will make sure that it will restart your service, if you have returned START_STICKY or START_REDELIVER_INTENT from onStartCommand().
+
+* Thread - if it is destroyed by android in middle due to low memory, then android will not guarantee to restart it again. That means user lost his half work.
+* Service - is a component of android, so it has priority levels to be considered while destroying an application due to low memory.
+
+* Thread - is not a component of android, so android will not take thread priority into consideration while killing an application due to low memory.
+I will try to explain this 3rd point.
+Lets, say you have a requirement of connecting to internet from your activity. You can do it by using a service(with thread) or directly by creating a thread in activity. Consider the second scenario where you are connecting to internet in a thread. Then
+i. What will happen if user closes the activity, while still thread is running in the background. Will that thread continue to run in back ground ? Answer is you can't really predict.
+
+ii. Assume that in continuation for above scenario, even after killing activity your thread continued to do its intended operation. Then there is a low memory situation arises in your phone. Then this application will be the first susceptible app to be killed as there is no priority for this application.
+
+So bottom line is: If you want to do some heavy background functionality then it is always better to have a service with thread. If you feel that that background functionality to be alive as long as your activity is alive, then go for activity with thread or activity with async task.
 ### Q: How to create optimise listview with images?
 ### Q: what is getView()?
-### Q: Launch mode in android?
+http://android.amberfog.com/?p=296
 
+https://www.youtube.com/watch?v=wDBM6wVEO70
+### Q: Launch mode in android?
 https://medium.com/@iammert/android-launchmode-visualized-8843fc833dbe
 
 https://blog.mindorks.com/android-activity-launchmode-explained-cbc6cf996802
@@ -954,24 +969,64 @@ https://medium.com/@inzimamislam/android-launch-mode-8ba7d7660526
 ### Q: What is searching techniques ?
 ### Q: What is sorting ? explain some sorting techniques and write programs?
 ### Q: What is pendingintent?
-### Q: What is START_STICKY, START_NOT_STICKTY, START_REDELIVER_INTENT etc?
+https://stackoverflow.com/questions/2808796/what-is-an-android-pendingintent
+
+https://android.jlelse.eu/intent-vs-pendingintent-8ef2ad5824ed
+
+https://codetheory.in/android-pending-intents/
+
+https://www.journaldev.com/10463/android-notification-pendingintent
+### Q: What is START_STICKY, START_NOT_STICKTY, START_REDELIVER_INTENT?
+These are related to services. We all know that services keeps on running in the background and they also consume some memory to execute.
+
+So, as more of the application runs on android device, the device memory keeps on getting low and when the time arises, when the device memory gets critically low, the android system starts terminating processes, so as to release the memory occupied by the processes.
+
+But you might be doing some important task with the services, that could also get terminated as the service stops. so these concepts are to tell the android system what action you want to perform when the device memory gets stable and when it is ready to relaunch the services.
+
+The simplest explanation of these could be,
+
+START_STICKY- tells the system to create a fresh copy of the service, when sufficient memory is available, after it recovers from low memory. Here you will lose the results that might have computed before.
+
+START_NOT_STICKY- tells the system not to bother to restart the service, even when it has sufficient memory.
+
+START_REDELIVER_INTENT- tells the system to restart the service after the crash and also redeliver the intents that were present at the time of crash.
 ### Q: Types of services in android ? what method to must override?
 ### Q: Java design pattern.
+https://www.journaldev.com/1827/java-design-patterns-example-tutorial
 ### Q: What is IBInder();
 ### Q: How to identify install and uninstall tracking of an application ?
 ### Q: What is the difference between Picaso and Glid ?
+![Alt text](https://i.stack.imgur.com/TdLCr.png "Optional title")
+
+https://medium.com/@multidots/glide-vs-picasso-930eed42b81d
+
+https://stackoverflow.com/questions/29363321/picasso-v-s-imageloader-v-s-fresco-vs-glide
+
+https://yourwebsitefirst.com/picasso-vs-glide-advantage-disadvantage/
+
+https://inthecheesefactory.com/blog/get-to-know-glide-recommended-by-google/en
 ### Q: Explain about video streaming ?
+Some commons topics used in video streaming ExoPLayer, HLS, .m3u8, DASH, WebRTC, Bitrate, ts, akamai,CDN, 
 ### Q: Ad SDK integration ?
-### Q: activity life cycle
+FAN, AdMob, IMA
 ### Q: How to pass data from activity to fragment and fragment to activity ?
-### Q: How to handle memory leak using handler
+Using Interface callback,
+Event Bus
+ViewModel
+### Q: How to handle memory leak using handler?
+Make handler null on destroy else it can throw memory leak.
 ### Q: How to pass data from one fragment to another?
+Using Interface callback,
+Event Bus
+ViewModel
 ### Q: Overloading and Overriding?
-### Q: Sticky intent?
 ### Q: Components of Android ?
-### Q: Fragment life cycle?
+Activity, Service, Broadcast reciver, content provider.
 ### Q: What is content provider ?
 ### Q: What if finally got exception ?
+https://beginnersbook.com/2013/04/java-finally-block/
+
+https://stackoverflow.com/questions/3779285/exception-thrown-in-catch-and-finally-clause
 ### Q: Write a program for fibonacci series?
 ### Q: Reverse a string using recursion ?
 ### Q: How to dump a Database to an  ArrayList?
