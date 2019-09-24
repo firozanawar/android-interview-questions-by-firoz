@@ -1034,11 +1034,51 @@ https://stackoverflow.com/questions/3779285/exception-thrown-in-catch-and-finall
 ### Q: 0->1 and 1->0  without using conditional operators?
 ### Q: Accessing variables in static context related problems?
 ### Q: Difference between Volley and Retrofit?
+#### Volley-
+
+* No automatic parsing
+* Caching Mechanism
+* Retry policy
+* inbuilt image loading support
+
+#### Retrofit-
+
+* Automatic JSON parsing
+* No Caching mechanism
+* no retry policy
+* no Image loading
+
+https://www.quora.com/What-is-the-difference-between-retrofit-and-volley-in-Android
+
+https://medium.com/@ali.muzaffar/is-retrofit-faster-than-volley-the-answer-may-surprise-you-4379bc589d7c
+
+https://www.truiton.com/2015/04/android-volley-vs-retrofit-better-approach/
+
+http://www.tothenew.com/blog/retrofit-vs-volley/
+
+https://stackoverflow.com/questions/16902716/comparison-of-android-networking-libraries-okhttp-retrofit-and-volley
+
+https://vickychijwani.me/retrofit-vs-volley/
 ### Q: What is exception handling?
-### Q: How many objects will get created in String problem?
+### Q: How many objects will get created in String, related problem?
 ### Q: What are Sensors?
+https://developer.android.com/guide/topics/sensors/sensors_overview
+
+https://source.android.com/devices/sensors/sensor-types
+
+https://www.tutorialspoint.com/android/android_sensors.htm
+
+https://www.javatpoint.com/android-sensor-tutorial
+
+https://www.vogella.com/tutorials/AndroidSensor/article.html
+
+https://www.journaldev.com/25691/android-sensors
 ### Q: If no column found then which exception ?
-### Q: Difference between GCm and FCM.
+android.database.sqlite.SQLiteException: table RejectList has no column named Number
+### Q: Difference between GCM and FCM.
+https://developers.google.com/cloud-messaging/faq
+
+https://krify.co/what-is-gcm-fcm-cloud-based-messaging/
 ### Q: What is URI path in android 7?
 ### Q: Batch count for number of messages like whatsapp
 ### Q: How to create facebook feed with smooth user experience. Uploading data from db to server. How to maintain local and server key
