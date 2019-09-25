@@ -1107,60 +1107,161 @@ https://www.javatpoint.com/abstract-class-in-java
 https://beginnersbook.com/2013/05/java-abstract-class-method/
 
 https://www.guru99.com/java-abstract-class-method.html
-### Q: 2D matrix problem ?
-### Q: Printing O, Printing O, Printing AO problem?
 ### Q: How to pass data between fragments using callbacks?
 Create an interface and implement to activity and throw callback from one fragment to another using interface callback.
 ### Q: What is static blocks? Use?
+1. A static block is a block of code which contains code that executes at class loading time.
+
+2. A static keyword is prefixed before the start of the block.
+
+3. All static variables can be accessed freely
+
+4. Any non-static fields can only be accessed through object reference,thus only after object construction.
+
+5. multiple static blocks would execute in the order they are defined in the class.
+
+6. All static blocks executes only once per classloader
+
+7. A typical static block looks like
+
+   `static{``// code for static block``}`
+   
+   http://www.bullraider.com/java/core-java/scjp-ocjp/290-static-non-static-block
+   
+   https://www.geeksforgeeks.org/g-fact-79/
 ### Q: How job scheduling works?
 ### Q: Generics in java ?
 ### Q: What is intent?
-### Q: What is service?
-### Q: Difference types of services? What is bound service?
-### Q: How to create aidl service?
+An Intent is a messaging object you can use to request an action from another app component. Although intents facilitate communication between components in several ways. 
+
+https://developer.android.com/guide/components/intents-filters
+
+https://www.vogella.com/tutorials/AndroidIntent/article.html
+
+https://www.youtube.com/watch?v=FH1Ym1KjJNc
+### Q: What is service? Difference types of services ? Life CycleWhat is bound service?
+A service is a component that runs in the background to perform long-running operations without needing to interact with the user and it works even if application is destroyed. or Android service is a component that is used to perform operations on the background such as playing music, handle network transactions, interacting content providers etc. It doesn't has any UI (user interface).
+
+https://www.vogella.com/tutorials/AndroidServices/article.html
+
+https://proandroiddev.com/deep-dive-into-android-services-4830b8c9a09
+
+https://medium.com/mindorks/mastering-android-service-of-2018-a4a1df5ed5a6
+
+https://www.simplifiedcoding.net/android-service-example/
+### Q: How to create AIDL service?
 ### Q: Polymorphism ?
 ### Q: Method overriding & overloading ?
 ### Q: How to create different row in recyclerview?
+https://medium.com/@droidbyme/android-recyclerview-with-multiple-view-type-multiple-view-holder-af798458763b
+
+https://www.codexpedia.com/android/android-recyclerview-with-multiple-different-layouts/
+
+https://www.journaldev.com/12372/android-recyclerview-example
+
+https://zocada.com/android-creating-custom-recyclerview-adapter-multiple-view-items/
+
+https://guides.codepath.com/android/Heterogenous-Layouts-inside-RecyclerView
 ### Q: JSON parsing?
+* Manual parsing by JSONObejct and JSOnArray etc
+* GSON
+* Other parsing libraries..
 ### Q: final keyword ?
 ### Q: Why java not supported Multiple inheritance ? tell me solution?
-### Q: Activity life cycle?
 ### Q: fragment life cycle ? Activity A1 has fragment A then replaced with B then C then D and from D to B. How memory will be created.
-### Q: Difference between Process and Thread?
 ### Q: Difference between Thread and Asynctask?
-### Q: How cardboard work in android? VR technologies
+### Q: How cardboard work in android? VR technologies?
 ### Q: How voice search work?
 ### Q: 9 coin problems? There 9 coins with 1 heavy weghted coin. Find the fake coin? Worst case, best case etc?
 ### Q: How to arrange value in HashMap in incoming elements ways?
-### Q: How to pass data between fragments using callbacks?
 ### Q: Can a thread can be started inside another thread? Can a Asyncttask can be started inside another AsyncTask?
 ### Q: How SyncAdapter works?
+https://developer.android.com/training/sync-adapters/creating-sync-adapter
+
+https://github.com/codepath/android_guides/wiki/Server-Synchronization-(SyncAdapter)
+
+https://www.oodlestechnologies.com/blogs/How-to-use-Sync-Adapter-In-Android/
+
+http://blog.udinic.com/2013/07/24/write-your-own-android-sync-adapter/
+
+http://blog.udinic.com/2013/07/24/write-your-own-android-sync-adapter/
 ### Q: How Executors work?
 ### Q: Comparator and comparable ?
+Comparable and Comparator both are interfaces and can be used to sort collection elements.
+
+ 
+
+| **Comparable**                                               | **Comparator**                                               |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1) Comparable provides **single sorting sequence**. In other words, we can sort the collection on the basis of single element such as id or name or price etc. | Comparator provides **multiple sorting sequence**. In other words, we can sort the collection on the basis of multiple elements such as id, name and price etc. |
+| 2) Comparable **affects the original class** i.e. actual class is modified. | Comparator **doesn't affect the original class** i.e. actual class is not modified. |
+| 3) Comparable provides **compareTo() method** to sort elements. | Comparator provides **compare() method** to sort elements.   |
+| 4) Comparable is found in **java.lang** package.             | Comparator is found in **java.util** package.                |
+| 5) We can sort the list elements of Comparable type by **Collections.sort(List)** method. | We can sort the list elements of Comparator type by **Collections.sort(List,Comparator)** method. |
+
+- http://javarevisited.blogspot.in/2011/06/comparator-and-comparable-in-java.html
 ### Q: What is Eventbus ?
+EventBus is an open-source Android library that simplifies communication between Activities, Fragments, Threads, and Services, with less code and better quality. 
+
+https://dzone.com/articles/what-is-eventbus-library-and-how-does-it-work
+
+http://greenrobot.org/eventbus/
+
+http://blogs.innovationm.com/what-is-eventbus-library-and-how-does-it-work/
 ### Q: What do you mean by composition ?
 ### Q: What is Map ? Write a program to put and get value from HasMap ?
-### Q: What is services ? Types ? Life Cycle ?
-### Q: What is Activity ? Life cycle ?
-### Q: What is Fragment and its life cycle ?
-### Q: Diff b/w Intent, StickyIntent & PendingIntent ?
-### Q: Difference between service and AsyncTask ?
-### Q: difference between Service and threads ?
 ### Q: What is encapsulation ?
-### Q: Android architecture ?
-### Q: Android application components ?
 ### Q: ListView with search? How to filter results of basis on key entered ?
 ### Q: How to handle the unsent data ?
-### Q: How to pass data between fragments ?
-### Q: Sync Adapters ?
-### Q: How to add column in existing table ? ALTER table .
+### Q: How to add column in existing table ? ALTER table.
 ### Q: Erro code ? 404, 500 etc.
 ### Q: What is difference between Parcelable and Serializable ?
+**Serializable:** 
+
+- Serializable is a standard Java interface. You can just implement Serializable interface and add override methods.The problem with this approach is that reflection is used and it is a slow process. This method create a lot of temporary objects and cause quite a bit of garbage collection. Serializable interface is easier to implement.
+- Serialization is a marker interface, which implies the user cannot marshal the data according to their requirements. In Serialization, a marshaling operation is performed on a Java Virtual Machine (JVM) using the Java reflection API. This helps identify the Java objects member and behavior, but also ends up creating a lot of garbage objects. **Due to this, the Serialization process is slow in comparison to Parcelable.**
+
+**Parcelable:** 
+
+- Parcelable process is much faster than serializable. One of the reasons for this is that we are being explicit about the serialization process instead of using reflection to infer it. It also stands to reason that the code has been heavily optimized for this purpose. 10 times faster and use less resources.
+- In Parcelable, developers write custom code for marshaling and unmarshaling so it creates less garbage objects in comparison to Serialization. The performance of Parcelable over Serialization dramatically improves (around two times faster), because of this custom implementation.
+
+References:-
+
+- https://www.3pillarglobal.com/insights/parcelable-vs-java-serialization-in-android-app-development
 ### Q: What is deep and shallow copy ?
+- https://dzone.com/articles/java-copy-shallow-vs-deep-in-which-you-will-swim
+
+- http://www.jusfortechies.com/java/core-java/deepcopy_and_shallowcopy.php
+
+- http://www.java67.com/2013/05/difference-between-deep-copy-vs-shallow-cloning-java.html
+
+- https://www.cs.utexas.edu/~scottm/cs307/handouts/deepCopying.htm
+
+- https://www.youtube.com/watch?v=A5QbxGvpRKU
 ### Q: What is the difference between iterator and enumerator ?
-### Q: What is the diff b/w comparator and comparable ?
+ 
+
+| **Enumeration**                                              | **Iterator**                                                 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Using *Enumeration*, you can only traverse the collection. You can’t do any modifications to collection while traversing it. | Using *Iterator*, you can remove an element of the collection while traversing it. |
+| *Enumeration* is introduced in JDK 1.0                       | *Iterator* is introduced from JDK 1.2                        |
+| *Enumeration* is used to traverse the legacy classes like *Vector*, *Stack* and *HashTable*. | *Iterator* is used to iterate most of the classes in the collection framework like *ArrayList*, *HashSet*, *HashMap*, *LinkedList* etc. |
+| Methods : *hasMoreElements()* and *nextElement()*            | Methods : *hasNext()*, *next()* and *remove()*               |
+| *Enumeration* is fail-safe in nature.                        | *Iterator* is fail-fast in nature.                           |
+| *Enumeration* is not safe and secured due to it’s fail-safe nature. | *Iterator* is safer and secured than *Enumeration*.          |
+
+
+- http://javaconceptoftheday.com/differences-between-enumeration-vs-iterator-in-java/
 ### Q: What is weak reference ?
+http://javapapers.com/core-java/java-weak-reference/
+
+http://www.programmr.com/blogs/what-every-java-developer-should-know-strong-and-weak-references
 ### Q: Limitation of proguard?
+https://www.guardsquare.com/en/proguard/manual/limitations
+
+http://www.dre.vanderbilt.edu/~schmidt/android/android-4.0/external/proguard/docs/manual/limitations.html
+
 ### Q: Diff b/w sparseArray and HashMap ?
 ### Q: How to interact b/w 2 fragments ?
 ### Q: How eventbus works internally ?
@@ -1354,3 +1455,5 @@ Questions about layouts in Android. Linear Relative etc.
 ### Q: Find middle element of linkedlist?
 ### Q: fail pass in DS?
 ### Q: How to find unique element in array?
+### Q: 2D matrix problem ?
+### Q: Printing O, Printing O, Printing AO problem?
