@@ -1200,7 +1200,7 @@ Comparable and Comparator both are interfaces and can be used to sort collection
 | 5) We can sort the list elements of Comparable type by **Collections.sort(List)** method. | We can sort the list elements of Comparator type by **Collections.sort(List,Comparator)** method. |
 
 - http://javarevisited.blogspot.in/2011/06/comparator-and-comparable-in-java.html
-### Q: What is Eventbus ?
+### Q: What is Eventbus ? How eventbus works internally?
 EventBus is an open-source Android library that simplifies communication between Activities, Fragments, Threads, and Services, with less code and better quality. 
 
 https://dzone.com/articles/what-is-eventbus-library-and-how-does-it-work
@@ -1263,8 +1263,27 @@ https://www.guardsquare.com/en/proguard/manual/limitations
 http://www.dre.vanderbilt.edu/~schmidt/android/android-4.0/external/proguard/docs/manual/limitations.html
 
 ### Q: Diff b/w sparseArray and HashMap ?
-### Q: How to interact b/w 2 fragments ?
-### Q: How eventbus works internally ?
+Sparse arrays can be used to replace hash maps when the key is a primitive type. There are some variants for different key/value type even though not all of them are publicly available.
+
+Benefits are:
+
+- Allocation-free
+- No boxing
+
+Drawbacks:
+
+- Generally slower, not indicated for large collections
+- They won't work in non-android project
+
+ 
+
+- The SparseArray is made to be **memory efficient** than using the regular HashMap, that is does not allow multiple gaps within the array not like HashMap.
+- SparseArray is the choice you should make when your map key is an integer, and those integers are not sequential, meaning not 0, 1, 2, 3, 4, ... n - but more like, 43, 2045, 12, 5.
+- Main purpose of SparseArray in Android development is to have a memory efficient integer to object mapping.
+
+References:-
+
+- http://gunhansancar.com/sparsearray-vs-hashmap/
 ### Q: Puzzle : 1 to 100 people in circle shooting each left one. Give a generic solution for N and also find which one will be last ?
 ### Q: Design Problem - Deck of cards problem.
 ### Q: Diff b/w these 2
