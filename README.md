@@ -1079,22 +1079,45 @@ android.database.sqlite.SQLiteException: table RejectList has no column named Nu
 https://developers.google.com/cloud-messaging/faq
 
 https://krify.co/what-is-gcm-fcm-cloud-based-messaging/
-### Q: What is URI path in android 7?
-### Q: Batch count for number of messages like whatsapp
-### Q: How to create facebook feed with smooth user experience. Uploading data from db to server. How to maintain local and server key
-### Q: Map in android
-### Q: Multiple fragments with viewpager with gridview. 
+### Q: Batch count for number of messages like whatsapp or Facebook?
+It is launcher property.
+### Q: How to create facebook feed with smooth user experience. Uploading data from db to server. How to maintain local and server key?
+### Q: Maps in android?
+https://www.journaldev.com/10365/android-google-maps-api
+
+https://www.journaldev.com/10380/android-google-maps-example-tutorial
+
+https://www.vogella.com/tutorials/AndroidGoogleMaps/article.html
+
+https://abhiandroid.com/programming/googlemaps
+
+https://www.androidhive.info/2013/08/android-working-with-google-maps-v2/
+### Q: Multiple fragments with viewpager with gridview?
 ### Q: Abstract classes?
+Abstract class in Java is similar to interface except that it can contain default method implementation. An abstract class can have an abstract method without body and it can have methods with implementation also.
+
+abstract keyword is used to create a abstract class and method. Abstract class in java can’t be instantiated. An abstract class is mostly used to provide a base for subclasses to extend and implement the abstract methods and override or use the implemented methods in abstract class.
+
+https://www.journaldev.com/1582/abstract-class-in-java
+
+https://www.geeksforgeeks.org/abstract-classes-in-java/
+
+https://www.javatpoint.com/abstract-class-in-java
+
+https://beginnersbook.com/2013/05/java-abstract-class-method/
+
+https://www.guru99.com/java-abstract-class-method.html
 ### Q: 2D matrix problem ?
 ### Q: Printing O, Printing O, Printing AO problem?
 ### Q: How to pass data between fragments using callbacks?
+Create an interface and implement to activity and throw callback from one fragment to another using interface callback.
 ### Q: What is static blocks? Use?
 ### Q: How job scheduling works?
 ### Q: Generics in java ?
-### Q:  What is intent?
+### Q: What is intent?
 ### Q: What is service?
+### Q: Difference types of services? What is bound service?
 ### Q: How to create aidl service?
-### Q: Abstract classes?
 ### Q: Polymorphism ?
 ### Q: Method overriding & overloading ?
 ### Q: How to create different row in recyclerview?
@@ -1103,7 +1126,6 @@ https://krify.co/what-is-gcm-fcm-cloud-based-messaging/
 ### Q: Why java not supported Multiple inheritance ? tell me solution?
 ### Q: Activity life cycle?
 ### Q: fragment life cycle ? Activity A1 has fragment A then replaced with B then C then D and from D to B. How memory will be created.
-### Q: Difference types of services? What is bound service?
 ### Q: Difference between Process and Thread?
 ### Q: Difference between Thread and Asynctask?
 ### Q: How cardboard work in android? VR technologies
