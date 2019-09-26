@@ -74,47 +74,6 @@ https://medium.com/google-developers/activity-revival-and-the-case-of-the-rotati
 
 ![Alt text](https://androidexample.com/upload/content/Push_notification_Workflow.png "Optional title")
 
-### Q: Object class and its methods ?
-The Object class is the parent class of all the classes in java by default.
-* The Object class is beneficial if you want to refer any object whose type you don't know. Notice that parent class reference variable can refer the child class object, know as upcasting.
-* Object class is present in java.lang package.
-* Object class methods are available to all Java classes.
-
-| Method | Description |
-| --- | --- |
-| public final Class getClass() | returns the Class class object of this object. The Class class can further be used to get the metadata of this class. |
-| public int hashCode() | returns the hashcode number for this object. |
-| public boolean equals(Object obj) | compares the given object to this object. |
-| protected Object clone() throws CloneNotSupportedException | creates and returns the exact copy (clone) of this object. |
-| public String toString() | returns the string representation of this object.|
-| public final void notify() | wakes up single thread, waiting on this object's monitor.|
-| public final void notifyAll() | wakes up all the threads, waiting on this object's monitor.|
-| public final void wait(long timeout)throws InterruptedException | causes the current thread to wait for the specified milliseconds, until another thread notifies (invokes notify() or notifyAll() method). |
-| public final void wait(long timeout,int nanos)throws InterruptedException | causes the current thread to wait for the specified milliseconds and nanoseconds, until another thread notifies (invokes notify() or notifyAll() method). |
-| public final void wait()throws InterruptedException | causes the current thread to wait, until another thread notifies (invokes notify() or notifyAll() method). |
-| protected void finalize()throws Throwable. | is invoked by the garbage collector before object is being garbage collected.
-
-*Note :* Whenever we try to print any Object reference, then internally toString() method is called.
- 
-**hashCode() :** For every object, JVM generates a unique number which is hashcode. It returns distinct integers for distinct objects. A common misconception about this method is that hashCode() method returns the address of object, which is not correct. It convert the internal address of object to an integer by using an algorithm. The hashCode() method is native because in Java it is impossible to find address of an object, so it uses native languages like C/C++ to find address of the object.
-
-**Use of hashCode() method :** Returns a hash value that is used to search object in a collection. JVM(Java Virtual Machine) uses hashcode method while saving objects into hashing related data structures like HashSet, HashMap, Hashtable etc. The main advantage of saving objects based on hash code is that searching becomes easy.
-
-*Note :* Override of hashCode() method needs to be done such that for every object we generate a unique number.
- 
-**equals(Object obj) :** Compares the given object to “this” object (the object on which the method is called). It gives a generic way to compare objects for equality. It is recommended to override equals(Object obj) method to get our own equality condition on Objects.
- 
-**getClass() :** Returns the class object of “this” object and used to get actual runtime class of the object. It can also be used to get metadata of this class. The returned Class object is the object that is locked by static synchronized methods of the represented class. As it is final so we don’t override it.
- 
-**finalize() method :** This method is called just before an object is garbage collected. It is called by the Garbage Collector on an object when garbage collector determines that there are no more references to the object. We should override finalize() method to dispose system resources, perform clean-up activities and minimize memory leaks.
-Note : finalize method is called just once on an object even though that object is eligible for garbage collection multiple times.
- 
-**clone() :** It returns a new object that is exactly the same as this object.
-
-https://www.geeksforgeeks.org/object-class-in-java/
-
-https://www.javatpoint.com/object-class
-
 ### Q: How to handle concurrent request in android ?
 https://medium.com/@ali.muzaffar/using-concurrency-and-speed-and-performance-on-android-d00ab4c5c8e3
 
@@ -180,8 +139,6 @@ FirstFragment onDetach
 
 MainActivity onDestroy
 
-
-
 **Case2:-  Add a fragment to an activity with backstack, and press back button.**
 
 MainActivity onCreate 
@@ -221,8 +178,6 @@ MainActivity onPause
 MainActivity onStop
 
 MainActivity onDestroy
-
-
 
 **Case3:- Add a fragment on top of another ADDED fragment with backstack,**
 
@@ -287,8 +242,6 @@ FirstFragment onDestroy
 FirstFragment onDetach
 
 MainActivity onDestroy
-
-
 
 **Case4:- Replaced a fragment on top of another ADDED fragment with backstack,**
 
@@ -375,17 +328,6 @@ https://stackoverflow.com/questions/18634207/difference-between-add-replace-and-
 ### Q: Difference between View and ViewGroup ?
 https://stackoverflow.com/questions/27352476/difference-between-view-and-viewgroup-in-android
 
-### Q: Difference between StringBuffer and StringBuilder ?
-https://www.journaldev.com/538/string-vs-stringbuffer-vs-stringbuilder
-
-StringBuffer was the only choice for String manipulation till Java 1.4 but it has one disadvantage that all of its public methods are synchronized. StringBuffer provides Thread safety but on a performance cost.
-
-In most of the scenarios, we don’t use String in a multithreaded environment, so Java 1.5 introduced a new class StringBuilder that is similar to StringBuffer except thread safety and synchronization.
-
-So if you are in a single threaded environment or don’t care about thread safety, you should use StringBuilder else use StringBuffer.
-
-![Alt text](https://2.bp.blogspot.com/-QHIf55P3o2I/W_FZaQ8YuXI/AAAAAAAAMmY/WXb342XKhCQd2iVotRwJ77-XgXSlGcV3gCLcBGAs/s640/String%2Band%2BStringbuffer%2Band%2BStringBuilder.png "Optional title")
-
 ### Q: Difference between SOAP and REST ?
 https://www.guru99.com/comparison-between-web-services.html
 
@@ -417,56 +359,6 @@ https://www.techjini.com/blog/passing-objects-via-intent-in-android/
 
 https://en.proft.me/2017/02/28/pass-object-between-activities-android-parcelable/
 
-### Q: Difference between sleep and wait ?
-A wait can be "woken up" by another thread calling notify on the monitor which is being waited on whereas a sleep cannot. Also a wait (and notify) must happen in a block synchronized on the monitor object whereas sleep does not.
-you call wait on Object itself (i.e. you wait on an object's monitor) whereas you call sleep on Thread.
-while sleeping a Thread does not release the locks it holds, while waiting releases the lock on the object that wait() is called on.
-synchronized(LOCK) 
-{ Thread.sleep(1000); // LOCK is held 
-} 
-synchronized(LOCK) 
-{ LOCK.wait(); // LOCK is not held 
-}
-sleep(n) says “I’m done with my timeslice, and please don’t give me another one for at least n milliseconds.” The OS doesn’t even try to schedule the sleeping thread until requested time has passed. .wait() says “I’m done with my timeslice. Don’t give me another timeslice until someone calls notify().” As with sleep(), the OS won’t even try to schedule your task unless someone calls notify() (or one of a few other wakeup scenarios occurs).
-
-### wait()
-* wait() method releases the lock.
-* wait() is the method of Object class.
-* wait() is the non-static method - public final void wait() throws InterruptedException { //...}
-* wait() should be notified by notify() or notifyAll() methods.
-* wait() method needs to be called from a loop in order to deal with false alarm.
-* wait() method must be called from synchronized context (i.e. synchronized method or block), otherwise it will throw IllegalMonitorStateException
-
-### sleep()
-* sleep() method doesn't release the lock.
-* sleep() is the method of java.lang.Thread class.
-* sleep() is the static method - public static void sleep(long millis, int nanos) throws InterruptedException { //... }
-* after the specified amount of time, sleep() is completed.
-* sleep() better not to call from loop(i.e. see code below).
-* sleep() may be called from anywhere. there is no specific requirement.
-
-### Q: What is synchronization in multithreading in java ? Give real time example ?
-When we start two or more threads within a program, there may be a situation when multiple threads try to access the same resource and finally they can produce unforeseen result due to concurrency issues.
-Synchronization in java is the capability to control the access of multiple threads to any shared resource. It allow only one thread to access the shared resource.
-### Why use Synchronization
-The synchronization is mainly used to
-To prevent thread interference. (fight between threads)
-To prevent consistency problem. (abnormal and unexpected value change of resource)
-
-Thread Synchronization
-There are two types of thread synchronization.
-* Mutual Exclusive
-* Cooperation (Inter-thread communication in java)
-### Mutual Exclusive
-Mutual Exclusive helps keep threads from interfering with one another while sharing data. This can be done by three ways in java:
-* by synchronized method
-* by synchronized block
-* by static synchronization
-Example : Multiple threads on single file. Opening,closing and writing etc.
-### Lock in Java
-Synchronization is built around an internal entity known as the lock or monitor. Every object has an lock associated with it. By convention, a thread that needs consistent access to an object's fields has to acquire the object's lock before accessing them, and then release the lock when it's done with them.
-When a thread invokes a synchronized method, it automatically acquires the lock for that object and releases it when the thread completes its task.
-When a thread acquires a lock, it is said to have entered the monitor. All other threads attempting to enter the locked monitor will be suspended until the first thread exits the monitor.
 ### Q: What are third party library you have integrated ?
 * Gson:  Gson is a Java library used for serializing and deserializing Java objects from and into JSON.
 * Retrofit: "Retrofit turns your REST API into a Java interface
@@ -520,59 +412,10 @@ https://stackoverflow.com/questions/3264383/difference-between-service-async-tas
 
 ### Q: Can service be called from any other thread ?
 ### Q: How listener (e.g click) works in android ?
-### Q: Difference between list and set ?
-http://net-informations.com/java/cjava/list.htm
-
-https://beginnersbook.com/2014/07/difference-between-list-and-set-in-java/
-
-https://www.java67.com/2013/01/difference-between-set-list-and-map-in-java.html
-
 ### Q: Difference between COARSE & FINE_LOCATION?
 Location can be determined by two ways:
 * Using NETWORK_PROVIDER -  ACCESS_COARSE_LOCATION or ACCESS_FINE_LOCATION
 * Using GPS_PROVIDER - ACCESS_FINE_LOCATION
-### Q: Why String is immutable in java?
-There are multiple reasons that String is designed to be immutable in Java.
-Because java uses the concept of string literal.Suppose there are 5 reference variables,all refers to one object "sachin".If one reference variable changes the value of the object, it will be affected to all the reference variables. That is why string objects are immutable in java.
-
-1. Requirement of String Pool
-String pool (String intern pool) is a special storage area in Java heap. When a string is created and if the string already exists in the pool, the reference of the existing string will be returned, instead of creating a new object and returning its reference.
-If string is not immutable, changing the string with one reference will lead to the wrong value for the other references.
-(or)
- Caching: when compiler optimizes your String objects, it sees that if two objects have same value (a="test", and b="test") and thus you need only one string object (for both a and b, these two will point to the same object).
- 
-2. Allow String to Cache its Hashcode
-The hashcode of string is frequently used in Java. For example, in a HashMap. Being immutable guarantees that hashcode will always the same, so that it can be cashed without worrying the changes.That means, there is no need to calculate hashcode every time it is used. This is more efficient.
-(or)
-Since Strings are very popular as HashMap key, it's important for them to be immutable so that they can retrieve the value object which was stored in HashMap. Since HashMap works in the principle of hashing, which requires same has value to function properly. Mutable String would produce two different hashcodes at the time of insertion and retrieval if contents of String was modified after insertion, potentially losing the value object in the map.
-
-3. Security
-String is widely used as parameter for many java classes, e.g. network connection, opening files, etc. Were String not immutable, a connection or file would be changed and lead to serious security threat. The method thought it was connecting to one machine, but was not. Mutable strings could cause security problem in Reflection too, as the parameters are strings.
-
-4. Synchronization and concurrency: making String immutable automatically makes them thread safe thereby solving the synchronization issues.
-
-5. Class loading: String is used as arguments for class loading. If mutable, it could result in wrong class being loaded (because mutable objects change their state).
-In summary, the reasons include design, efficiency, and security.
-
-https://www.journaldev.com/16928/java-string
-
-https://www.javatpoint.com/java-string
-
-https://www.geeksforgeeks.org/strings-in-java/
-
-### Q: What is static binding and dynamic binding ?
-* Static binding happens at compile-time while dynamic binding happens at runtime.
-* Binding of private, static and final methods always happen at compile time since these methods cannot be overridden. Binding of overridden methods happen at runtime.
-* Java uses static binding for overloaded methods and dynamic binding for overridden methods.
-### Q: Can interface be final ? and give the Reason?
-No. An interface is a pure abstract class. Hence, all methods in an interface are abstract , and must be implemented in the child classes. So, by extension, none of them can be declared as final. A final method can't be overridden.
-If you declare a class final cannot extend it. If you make a method final you cannot override it and, if you make a variable final you cannot modify it. i.e. use final with Java entities you cannot modify them further.
-
-If you make an interface final, you cannot implement its methods which defies the very purpose of the interfaces. 
-
-https://www.tutorialspoint.com/can-we-declare-an-interface-as-final-in-java
-
-### Q: Runtime Polymorphism ?
 ### Q: Which of the following is the immediate base class for Activity and Service classes?
 Context
 ### Q: Webservice in android?
@@ -592,38 +435,6 @@ https://android.jlelse.eu/understanding-recyclerview-a-high-level-insight-part-1
 https://android.jlelse.eu/understanding-recyclerview-components-part-2-1fd43001a98f
 
 https://www.quora.com/What-is-RecyclerView-in-Android-and-how-does-it-work
-### Q: How HashMap works ?Why we go for HashMap ?
-HashMap is a part of collection in Java since 1.2. It provides the basic implementation of Map interface of Java. It stores the data in (Key,Value) pairs. To access a value you must know its key, otherwise you can’t access it. HashMap is known as HashMap because it uses a technique Hashing.[ Hashing](http://quiz.geeksforgeeks.org/hashing-set-1-introduction/) is a technique of converting a large String to small String that represents same String. A shorter value helps in indexing and faster searches.
-
-Few important features of HashMap are:
-
-- HashMap is a part of java.util package.
-- HashMap extends an abstract class AbstractMap which also provides an incomplete implementation of Map interface.
-- It also implements [Cloneable](https://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html) and [Serializable](https://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html) interface. K and V in the above definition represent Key and Value respectively.
-- HashMap doesn’t allow duplicate keys but allows duplicate values. That means A single key can’t contain more than 1 value but more than 1 key can contain a single value.
-- HashMap allows null key also but only once and multiple null values.
-- This class makes no guarantees as to the order of the map; in particular, it does not guarantee that the order will remain constant over time. It is roughly similar to HashTable but is unsynchronized.
-
-**Internal Structure of HashMap**
-
-Internally HashMap contains an array of Node. and a node is represented as a class which contains 4 fields :
-
-1. int hash
-2. K key
-3. V value
-4. Node next
-
-https://www.javatpoint.com/working-of-hashmap-in-java
-
-https://www.geeksforgeeks.org/java-util-hashmap-in-java-with-examples/
-
-https://www.geeksforgeeks.org/internal-working-of-hashmap-java/
-
-https://www.youtube.com/watch?v=CojCE-ojdGY
-
-https://www.youtube.com/watch?v=fSjxhOYPBRI
-
-https://www.youtube.com/watch?v=c3RVW3KGIIE
 
 ### Q: How to update textview from intentservice ?
 
@@ -667,7 +478,6 @@ https://justanapplication.wordpress.com/tag/onnewintent/
 
 https://medium.com/@ankit.sinhal/understand-activity-launch-mode-with-examples-721e85b6421e
 
-### Q: What is time and space complexity?
 ### Q: Alarm Manager ? 
 This class provides access to the system alarm services. These allow you to schedule your application to be run at some point in the future. Registered alarms are retained while the device is asleep (and can optionally wake the device up if they go off during that time), but will be cleared if it is turned off and rebooted.
 The Alarm Manager holds a CPU wake lock as long as the alarm receiver's onReceive() method is executing. 
@@ -772,25 +582,7 @@ http://www.techotopia.com/index.php/Understanding_Android_Application_and_Activi
 ### Q: Access level of content provider?
 ### Q: Synchronization in singlton class ?
 ### Q: Listview for generic screens?
-### Q: linkify class?
-Linkify take a piece of text and a regular expression and turns all of the regex matches in the text into clickable links. This is particularly useful for matching things like email addresses, web URLs, etc. and making them actionable. Alone with the pattern that is to be matched, a URL scheme prefix is also required. Any pattern match that does not begin with the supplied scheme will have the scheme prepended to the matched text when the clickable URL is created. For instance, if you are matching web URLs you would supply the scheme http://. If the pattern matches example.com, which does not have a URL scheme prefix, the supplied scheme will be prepended to create http://example.com when the clickable URL link is created. 
-
-https://developer.android.com/reference/android/text/util/Linkify.html
-
-http://www.sanfoundry.com/java-andorid-program-demonstrate-linkify-class/
-
-http://www.aviyehuda.com/blog/2011/01/27/android-creating-links-using-linkfy/
-
-https://android-developers.googleblog.com/2008/03/linkify-your-text.html
-
-http://www.indelible.org/ink/android-linkify/
-
 ### Q: xhdpi which API level ?
-### Q: Abstract class ? can abstract method be final ?
-A class that is declared with abstract keyword, is known as abstract class in java. It can have abstract and non-abstract methods (method with body). Achieve abstraction in java using abstract class.
-No. abstract method can’t be final because it has to overridden by other class.
-
-### Q: Remote FactoryClass?
 ### Q: do Content provider uses the shared preferences?
 No
 
@@ -915,9 +707,6 @@ https://tutorial.eyehunts.com/android/deference-between-handler-asynctask-thread
 https://www.slideshare.net/HoangNgoBuu/android-thread-handler-and-asynctask
 
 https://blog.mindorks.com/android-core-looper-handler-and-handlerthread-bd54d69fe91a
-### Q: Linkedlist intersecting point ?
-### Q: Singleton ?
-### Q:  Array to find unique element?
 ### Q: Message and looper?
 https://blog.mindorks.com/android-core-looper-handler-and-handlerthread-bd54d69fe91a
 
@@ -966,8 +755,6 @@ https://android.jlelse.eu/android-activity-launch-mode-e0df1aa72242
 
 https://medium.com/@inzimamislam/android-launch-mode-8ba7d7660526
 ### Q: how to draw X on right top corner on any dialog?
-### Q: What is searching techniques ?
-### Q: What is sorting ? explain some sorting techniques and write programs?
 ### Q: What is pendingintent?
 https://stackoverflow.com/questions/2808796/what-is-an-android-pendingintent
 
@@ -991,7 +778,6 @@ START_NOT_STICKY- tells the system not to bother to restart the service, even wh
 
 START_REDELIVER_INTENT- tells the system to restart the service after the crash and also redeliver the intents that were present at the time of crash.
 ### Q: Types of services in android ? what method to must override?
-### Q: Java design pattern.
 https://www.journaldev.com/1827/java-design-patterns-example-tutorial
 ### Q: What is IBInder();
 ### Q: How to identify install and uninstall tracking of an application ?
@@ -1019,20 +805,9 @@ Make handler null on destroy else it can throw memory leak.
 Using Interface callback,
 Event Bus
 ViewModel
-### Q: Overloading and Overriding?
 ### Q: Components of Android ?
 Activity, Service, Broadcast reciver, content provider.
 ### Q: What is content provider ?
-### Q: What if finally got exception ?
-https://beginnersbook.com/2013/04/java-finally-block/
-
-https://stackoverflow.com/questions/3779285/exception-thrown-in-catch-and-finally-clause
-### Q: Write a program for fibonacci series?
-### Q: Reverse a string using recursion ?
-### Q: How to dump a Database to an  ArrayList?
-### Q: Find duplicate in array?
-### Q: 0->1 and 1->0  without using conditional operators?
-### Q: Accessing variables in static context related problems?
 ### Q: Difference between Volley and Retrofit?
 #### Volley-
 
@@ -1059,8 +834,6 @@ http://www.tothenew.com/blog/retrofit-vs-volley/
 https://stackoverflow.com/questions/16902716/comparison-of-android-networking-libraries-okhttp-retrofit-and-volley
 
 https://vickychijwani.me/retrofit-vs-volley/
-### Q: What is exception handling?
-### Q: How many objects will get created in String, related problem?
 ### Q: What are Sensors?
 https://developer.android.com/guide/topics/sensors/sensors_overview
 
@@ -1093,44 +866,9 @@ https://abhiandroid.com/programming/googlemaps
 
 https://www.androidhive.info/2013/08/android-working-with-google-maps-v2/
 ### Q: Multiple fragments with viewpager with gridview?
-### Q: Abstract classes?
-Abstract class in Java is similar to interface except that it can contain default method implementation. An abstract class can have an abstract method without body and it can have methods with implementation also.
-
-abstract keyword is used to create a abstract class and method. Abstract class in java can’t be instantiated. An abstract class is mostly used to provide a base for subclasses to extend and implement the abstract methods and override or use the implemented methods in abstract class.
-
-https://www.journaldev.com/1582/abstract-class-in-java
-
-https://www.geeksforgeeks.org/abstract-classes-in-java/
-
-https://www.javatpoint.com/abstract-class-in-java
-
-https://beginnersbook.com/2013/05/java-abstract-class-method/
-
-https://www.guru99.com/java-abstract-class-method.html
 ### Q: How to pass data between fragments using callbacks?
 Create an interface and implement to activity and throw callback from one fragment to another using interface callback.
-### Q: What is static blocks? Use?
-1. A static block is a block of code which contains code that executes at class loading time.
-
-2. A static keyword is prefixed before the start of the block.
-
-3. All static variables can be accessed freely
-
-4. Any non-static fields can only be accessed through object reference,thus only after object construction.
-
-5. multiple static blocks would execute in the order they are defined in the class.
-
-6. All static blocks executes only once per classloader
-
-7. A typical static block looks like
-
-   `static{``// code for static block``}`
-   
-   http://www.bullraider.com/java/core-java/scjp-ocjp/290-static-non-static-block
-   
-   https://www.geeksforgeeks.org/g-fact-79/
 ### Q: How job scheduling works?
-### Q: Generics in java ?
 ### Q: What is intent?
 An Intent is a messaging object you can use to request an action from another app component. Although intents facilitate communication between components in several ways. 
 
@@ -1150,8 +888,6 @@ https://medium.com/mindorks/mastering-android-service-of-2018-a4a1df5ed5a6
 
 https://www.simplifiedcoding.net/android-service-example/
 ### Q: How to create AIDL service?
-### Q: Polymorphism ?
-### Q: Method overriding & overloading ?
 ### Q: How to create different row in recyclerview?
 https://medium.com/@droidbyme/android-recyclerview-with-multiple-view-type-multiple-view-holder-af798458763b
 
@@ -1166,14 +902,10 @@ https://guides.codepath.com/android/Heterogenous-Layouts-inside-RecyclerView
 * Manual parsing by JSONObejct and JSOnArray etc
 * GSON
 * Other parsing libraries..
-### Q: final keyword ?
-### Q: Why java not supported Multiple inheritance ? tell me solution?
 ### Q: fragment life cycle ? Activity A1 has fragment A then replaced with B then C then D and from D to B. How memory will be created.
 ### Q: Difference between Thread and Asynctask?
 ### Q: How cardboard work in android? VR technologies?
 ### Q: How voice search work?
-### Q: 9 coin problems? There 9 coins with 1 heavy weghted coin. Find the fake coin? Worst case, best case etc?
-### Q: How to arrange value in HashMap in incoming elements ways?
 ### Q: Can a thread can be started inside another thread? Can a Asyncttask can be started inside another AsyncTask?
 ### Q: How SyncAdapter works?
 https://developer.android.com/training/sync-adapters/creating-sync-adapter
@@ -1186,20 +918,6 @@ http://blog.udinic.com/2013/07/24/write-your-own-android-sync-adapter/
 
 http://blog.udinic.com/2013/07/24/write-your-own-android-sync-adapter/
 ### Q: How Executors work?
-### Q: Comparator and comparable ?
-Comparable and Comparator both are interfaces and can be used to sort collection elements.
-
- 
-
-| **Comparable**                                               | **Comparator**                                               |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1) Comparable provides **single sorting sequence**. In other words, we can sort the collection on the basis of single element such as id or name or price etc. | Comparator provides **multiple sorting sequence**. In other words, we can sort the collection on the basis of multiple elements such as id, name and price etc. |
-| 2) Comparable **affects the original class** i.e. actual class is modified. | Comparator **doesn't affect the original class** i.e. actual class is not modified. |
-| 3) Comparable provides **compareTo() method** to sort elements. | Comparator provides **compare() method** to sort elements.   |
-| 4) Comparable is found in **java.lang** package.             | Comparator is found in **java.util** package.                |
-| 5) We can sort the list elements of Comparable type by **Collections.sort(List)** method. | We can sort the list elements of Comparator type by **Collections.sort(List,Comparator)** method. |
-
-- http://javarevisited.blogspot.in/2011/06/comparator-and-comparable-in-java.html
 ### Q: What is Eventbus ? How eventbus works internally?
 EventBus is an open-source Android library that simplifies communication between Activities, Fragments, Threads, and Services, with less code and better quality. 
 
@@ -1208,9 +926,6 @@ https://dzone.com/articles/what-is-eventbus-library-and-how-does-it-work
 http://greenrobot.org/eventbus/
 
 http://blogs.innovationm.com/what-is-eventbus-library-and-how-does-it-work/
-### Q: What do you mean by composition ?
-### Q: What is Map ? Write a program to put and get value from HasMap ?
-### Q: What is encapsulation ?
 ### Q: ListView with search? How to filter results of basis on key entered ?
 ### Q: How to handle the unsent data ?
 ### Q: How to add column in existing table ? ALTER table.
@@ -1239,74 +954,17 @@ References:-
 - https://www.cs.utexas.edu/~scottm/cs307/handouts/deepCopying.htm
 
 - https://www.youtube.com/watch?v=A5QbxGvpRKU
-### Q: What is the difference between iterator and enumerator ?
- 
-
-| **Enumeration**                                              | **Iterator**                                                 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Using *Enumeration*, you can only traverse the collection. You can’t do any modifications to collection while traversing it. | Using *Iterator*, you can remove an element of the collection while traversing it. |
-| *Enumeration* is introduced in JDK 1.0                       | *Iterator* is introduced from JDK 1.2                        |
-| *Enumeration* is used to traverse the legacy classes like *Vector*, *Stack* and *HashTable*. | *Iterator* is used to iterate most of the classes in the collection framework like *ArrayList*, *HashSet*, *HashMap*, *LinkedList* etc. |
-| Methods : *hasMoreElements()* and *nextElement()*            | Methods : *hasNext()*, *next()* and *remove()*               |
-| *Enumeration* is fail-safe in nature.                        | *Iterator* is fail-fast in nature.                           |
-| *Enumeration* is not safe and secured due to it’s fail-safe nature. | *Iterator* is safer and secured than *Enumeration*.          |
-
-
-- http://javaconceptoftheday.com/differences-between-enumeration-vs-iterator-in-java/
-### Q: What is weak reference ?
-http://javapapers.com/core-java/java-weak-reference/
-
-http://www.programmr.com/blogs/what-every-java-developer-should-know-strong-and-weak-references
 ### Q: Limitation of proguard?
 https://www.guardsquare.com/en/proguard/manual/limitations
 
 http://www.dre.vanderbilt.edu/~schmidt/android/android-4.0/external/proguard/docs/manual/limitations.html
-
-### Q: Diff b/w sparseArray and HashMap ?
-Sparse arrays can be used to replace hash maps when the key is a primitive type. There are some variants for different key/value type even though not all of them are publicly available.
-
-Benefits are:
-
-- Allocation-free
-- No boxing
-
-Drawbacks:
-
-- Generally slower, not indicated for large collections
-- They won't work in non-android project
-
- 
-
-- The SparseArray is made to be **memory efficient** than using the regular HashMap, that is does not allow multiple gaps within the array not like HashMap.
-- SparseArray is the choice you should make when your map key is an integer, and those integers are not sequential, meaning not 0, 1, 2, 3, 4, ... n - but more like, 43, 2045, 12, 5.
-- Main purpose of SparseArray in Android development is to have a memory efficient integer to object mapping.
-
-References:-
-
-- http://gunhansancar.com/sparsearray-vs-hashmap/
-### Q: Puzzle : 1 to 100 people in circle shooting each left one. Give a generic solution for N and also find which one will be last ?
-### Q: Design Problem - Deck of cards problem.
-### Q: Diff b/w these 2
-### Q: String a= “abcd”;
-String a =new String(“abcd);
-### Q: How you handle memory leaks in android ?
-### Q: Diff between Object and Object reference ?
 ### Q: How payment integration works  ?
-### Q: Write sorting algorithm ? Quick, Merge sort etc ?
 ### Q: What is executors ? How it works ?
 ### Q: How RecyclerView works ? Use of ViewHolders ?
 ### Q: How to send each visible row of RecyclerView data to server ?
 ### Q: What are callbacks RecyclerView have ?
-### Q: There is an array. Find the f(frquency) >=length/2
-Array ar=[1,1,2,2,3,5,1]
-f(ar[i]) >=length/2
 ### Q: What is synchronous and Asynchronous request ?
-### Q: What is the difference between activity, service and fragment?
 ### Q: Explain the MVP architecture in detail.
-### Q: Explain about services in android ?
-### Q: How to create Circular layout like progress bar with colors ?
-### Q: How to sort an array ? What internally it does ?
-### Q: How HashMap works ?
 ### Q: How to navigate from one activity to another and how to finish an activity. Given some scenario ?
 ### Q: Explain about FCM ?
 ### Q:: What is the difference between DVM and ART ?
@@ -1318,17 +976,7 @@ f(ar[i]) >=length/2
 ### Q: What is key store ? How it works ?
 ### Q: What is the difference between and permissions and use-permissions ?
 ### Q: What is sensors ? How to get data from all sensors ?
-### Q: What is reflection ? what is getAccess and invoke method ?
 ### Q:: How you save data in Realam ? disadvantegaes of realm ?
-### Q: Transpose the metrixs.
-### Q: Given a string. Find the repeated string how many times it has occurred ?
-### Q: Given a string find the integer values in string and find the sum ?
-### Q: given an array find the 3rd and 4th largest element ?
-### Q: What is access modifiers ?
-### Q: Difference between AsyncTask and Thread ?
-### Q: Component of Android ?
-### Q: Difference between comparator and comparable ?
-### Q: Diff b/w ArrayList and Vector ?
 ### Q: What is SOAP ? How you worked on SOAP ?
 ### Q: Have you worked on firebase ?
 ### Q: Have you worked on Payment Integration ?
@@ -1336,10 +984,8 @@ f(ar[i]) >=length/2
 ### Q: Broadcast Life Cycle ?
 ### Q: Can we use SharedPreferences in ContentProvider ?
 ### Q: How Handler works ?
-### Q: How annotations works ?
 ### Q: How to manage concurrent request in intent service ?
 ### Q: Find maxima element in an array where elements left and right side element is smaller.?
-### Q: What do you mean by Serializable ?
 ### Q: What do you mean by SharedPreferences ?
 ### Q: How will you update the table of an existing application ?
 ### Q: What is content provider and contentresolver ?
@@ -1348,21 +994,14 @@ f(ar[i]) >=length/2
 ### Q: Payment sdk ? 
 ### Q: How will you display 5 coordinates on map ? What do you mean GeoFencing ?
 ### Q: Difference between add() and replace() in fragment ? can i directly use replace in case no fragment added previously ?
-### Q: What do you mean by abstraction and interface ?
-### Q: What is exception handling ?
 ### Q: Difference between Handler and Thread ?
 ### Q: How to achieve parallel request in android ?
-### Q: What is difference between Serializable & Parcelable ? How parcelable is more faster than serializable ?
 ### Q: How to pass an entity object from one activity to another ?
 ### Q: What is onActivityCreated() in fragment life cycle ? Explain its use ?
-### Q: What is Set ? LinkedHashSet ? TreeSet ?
-### Q: difference b/w Array and ArrayList ?
 ### Q: facebook, twitter, linkedin, instagram integration ?
 ### Q: Admob integration ? Sometime it doesn't work in starting ? Why ?
 ### Q: How will you find height of an object using Sensore or Cameras ?
 ### Q: What do you abour Image Processing in android ?
-### Q: Explain encapsulation and abstraction using real time example ?
-### Q: Problem of find time using sand. Take 2 bottle and find 10 minutes, 12 minutes, and 9 minutes ?
 ### Q: What is AsyncTask ? Methods ? cancellable() ? DisAdvantages of AsyncTask ?
 ### Q: What do you mean by SYNC ? How android take care of syncing ?
 ### Q: Intent types ? 
@@ -1377,69 +1016,41 @@ f(ar[i]) >=length/2
 ### Q: How would you pass data from 5 activities to one activity. Large chunks of data.
 ### Q: How do you pass data in Android ?
 ### Q: Intent use pass by value or reference.
-### Q: Difference between Inner and Outer join and which one is faster ?
-Some Puzzle Questions :
-### Q: Find a submatrix inside a matrix 
-### Q: Make an 8 sided dice from a coin.
-### Q: 10 bags with balls, one bag is defective question.
-### Q: Toggling doors question, every door in first pass, alternate in second pass ... till 100 doors.
-### Q: 1000 wine bottles, one is poisoned, you have 10 prisoners question.
-You can easily find answers to these on the web. I was able to answer 2 correctly and attempted the other two also. Reached half way in one of them.
-### Q: Write a function which takes in the root node of a tree and outputs true or false depending on whether that tree is symmetric or not.
-### Q: How would I search a name of a student in all of the Universities in India and how would I optimise it?  Using trie. Optimize using compression.
-### Q: find the sum of odd positioned nodes of a BST. 
-Questions about layouts in Android. Linear Relative etc.
-### Q: What are android components ?
-### Q: How to pass data between activities ?
-### Q: How to pass data from activity to fragment ?
-### Q: What is services ? Types and their differences
+### Q: Difference between Inner and Outer join and which one is faster ? 
 ### Q: What is Broadcast ? Types ?
 ### Q: What is AsyncTask ? When to use? 
 ### Q: Advantage of asynctask loaders?
-### Q: What is intent ?
 ### Q: What is RecyclerView? Difference with ListView ?
 ### Q: What is difference between declaring broadcast in Manifest and dynamic ?
 ### Q: How to get Bitmap's width and height ?
 ### Q: What is diff b/w  thread and handler?
 ### Q: Suppose there is mobile having x width and y height. When we touch it somewhere it has coordinate (x1,y1). There is an image having width x2,height y2, find the coordinate (x3,y3) with respective to device.
-### Q: There is lift in 4th floor, there is 2 person one is 3rd floor and another one in 5th floor presses the button on same time. Where this lift will go?
 ### Q: AsyncTask,AsyncTask Loaders and their effects on UI rotation?
-### Q: Passing data between activities and fragemtns
-### Q: Difference between Serialazble and Parcelbale ? Why parcelable is fast ?
 ### Q: Sensors ? What are types of sensors ? Classes ?
-### Q: Services ? Types ?
 ### Q: Broadcast receiver ? Can we get Broadcast Receiver in different process ?
 ### Q: Passing data from service to UI ?
 ### Q: Diffe b/w looper and handler ?
 ### Q: How to take care of below things 1. Securities 2. App optimization and refactoring 3. Reduce app size
 ### Q: On what basic you select network library ? Volley or Retrofit ?
 ### Q: How to design e-commmerse application with 60 different screesns?
-### Q: How to find unique element in an array ?
 ### Q: What is job sceduler ? Why is recommanded ?
 ### Q: What is Executors ? How it works ?
-### Q: Fragment life cycle ?
 ### Q: diff b/w asset and raw ?
 ### Q: What are flags in AppBar layout ? What is behavior ?
 ### Q: How to create custom behavior in AppBar layout?
 ### Q: Constraint layout ?
-### Q: diff b/w throw and throws ?
 ### Q: What do you mean by errors ?
 ### Q: differnce between LRUcache and BitmapCache ?
 ### Q: Callbacks of Volley and Retrofit ? Asked many questions from volley and retrofit ?
-### Q: Reflections ?
 ### Q: SSL in android?
-### Q: GCM Implementation ?
 ### Q: What do you mean by weight and weight sum ?
 ### Q: How to place a bottom on bottom of screen for all devices?
-### Q: What do you mean by anonymous class ?
 ### Q: What is fragment ?
 ### Q: How to update UI from service ?
 ### Q: Which class cannot be subclass in java ?
 ### Q: What is loaders? Synchronous or asynchronous ?
 ### Q: Did task has process in it ?
 ### Q: What is use of kernel in android ?
-### Q: if TOGETHER is equal to RQEGRJCT then what will be for PAROLE ?
-### Q: 1,2,512,27,58,121…… next number(248 ? 244 ? 198? 190?)
 ### Q: Q: What is diff b/w ListView and RecyclerView ?
 ### Q: What and all library you have integrated ?
 ### Q: What are diff process you have while designing app ?
@@ -1457,11 +1068,372 @@ Questions about layouts in Android. Linear Relative etc.
 ### Q: Sensors ? How you pass sensors data to UI ?
 ### Q: How to pass data b/w activities and fragments ? How to get result back from activity ?
 ### Q: How to make connection using okhttp instead on Retrofit?
-### Q: Diff b/w serializable and parcelable ?
-### Q: There is an sorted array 5,4,3,2,0,1 shuffled due to some reason. How to find the origin (0) of that array. Take care of complexity?
-### Q: Star pattern problem
 ### Q: How you can give runtime permission without user knowledge ? Using Accessibility service ? adb shell commands etc ?
 ### Q: Have you ever build android OS? Kernel drivers etc ?
+
+### **************************************************************
+# General Questions (Java, DS, Alog, other logical questions) 
+### **************************************************************
+
+### Q: Object class and its methods ?
+The Object class is the parent class of all the classes in java by default.
+* The Object class is beneficial if you want to refer any object whose type you don't know. Notice that parent class reference variable can refer the child class object, know as upcasting.
+* Object class is present in java.lang package.
+* Object class methods are available to all Java classes.
+
+| Method | Description |
+| --- | --- |
+| public final Class getClass() | returns the Class class object of this object. The Class class can further be used to get the metadata of this class. |
+| public int hashCode() | returns the hashcode number for this object. |
+| public boolean equals(Object obj) | compares the given object to this object. |
+| protected Object clone() throws CloneNotSupportedException | creates and returns the exact copy (clone) of this object. |
+| public String toString() | returns the string representation of this object.|
+| public final void notify() | wakes up single thread, waiting on this object's monitor.|
+| public final void notifyAll() | wakes up all the threads, waiting on this object's monitor.|
+| public final void wait(long timeout)throws InterruptedException | causes the current thread to wait for the specified milliseconds, until another thread notifies (invokes notify() or notifyAll() method). |
+| public final void wait(long timeout,int nanos)throws InterruptedException | causes the current thread to wait for the specified milliseconds and nanoseconds, until another thread notifies (invokes notify() or notifyAll() method). |
+| public final void wait()throws InterruptedException | causes the current thread to wait, until another thread notifies (invokes notify() or notifyAll() method). |
+| protected void finalize()throws Throwable. | is invoked by the garbage collector before object is being garbage collected.
+
+*Note :* Whenever we try to print any Object reference, then internally toString() method is called.
+ 
+**hashCode() :** For every object, JVM generates a unique number which is hashcode. It returns distinct integers for distinct objects. A common misconception about this method is that hashCode() method returns the address of object, which is not correct. It convert the internal address of object to an integer by using an algorithm. The hashCode() method is native because in Java it is impossible to find address of an object, so it uses native languages like C/C++ to find address of the object.
+
+**Use of hashCode() method :** Returns a hash value that is used to search object in a collection. JVM(Java Virtual Machine) uses hashcode method while saving objects into hashing related data structures like HashSet, HashMap, Hashtable etc. The main advantage of saving objects based on hash code is that searching becomes easy.
+
+*Note :* Override of hashCode() method needs to be done such that for every object we generate a unique number.
+ 
+**equals(Object obj) :** Compares the given object to “this” object (the object on which the method is called). It gives a generic way to compare objects for equality. It is recommended to override equals(Object obj) method to get our own equality condition on Objects.
+ 
+**getClass() :** Returns the class object of “this” object and used to get actual runtime class of the object. It can also be used to get metadata of this class. The returned Class object is the object that is locked by static synchronized methods of the represented class. As it is final so we don’t override it.
+ 
+**finalize() method :** This method is called just before an object is garbage collected. It is called by the Garbage Collector on an object when garbage collector determines that there are no more references to the object. We should override finalize() method to dispose system resources, perform clean-up activities and minimize memory leaks.
+Note : finalize method is called just once on an object even though that object is eligible for garbage collection multiple times.
+ 
+**clone() :** It returns a new object that is exactly the same as this object.
+
+https://www.geeksforgeeks.org/object-class-in-java/
+
+https://www.javatpoint.com/object-class
+
+### Q: Difference between StringBuffer and StringBuilder ?
+https://www.journaldev.com/538/string-vs-stringbuffer-vs-stringbuilder
+
+StringBuffer was the only choice for String manipulation till Java 1.4 but it has one disadvantage that all of its public methods are synchronized. StringBuffer provides Thread safety but on a performance cost.
+
+In most of the scenarios, we don’t use String in a multithreaded environment, so Java 1.5 introduced a new class StringBuilder that is similar to StringBuffer except thread safety and synchronization.
+
+So if you are in a single threaded environment or don’t care about thread safety, you should use StringBuilder else use StringBuffer.
+
+![Alt text](https://2.bp.blogspot.com/-QHIf55P3o2I/W_FZaQ8YuXI/AAAAAAAAMmY/WXb342XKhCQd2iVotRwJ77-XgXSlGcV3gCLcBGAs/s640/String%2Band%2BStringbuffer%2Band%2BStringBuilder.png "Optional title")
+
+\### Q: Difference between sleep and wait ?
+
+A wait can be "woken up" by another thread calling notify on the monitor which is being waited on whereas a sleep cannot. Also a wait (and notify) must happen in a block synchronized on the monitor object whereas sleep does not.
+
+you call wait on Object itself (i.e. you wait on an object's monitor) whereas you call sleep on Thread.
+
+while sleeping a Thread does not release the locks it holds, while waiting releases the lock on the object that wait() is called on.
+
+synchronized(LOCK) 
+
+{ Thread.sleep(1000); // LOCK is held 
+
+} 
+
+synchronized(LOCK) 
+
+{ LOCK.wait(); // LOCK is not held 
+
+}
+
+sleep(n) says “I’m done with my timeslice, and please don’t give me another one for at least n milliseconds.” The OS doesn’t even try to schedule the sleeping thread until requested time has passed. .wait() says “I’m done with my timeslice. Don’t give me another timeslice until someone calls notify().” As with sleep(), the OS won’t even try to schedule your task unless someone calls notify() (or one of a few other wakeup scenarios occurs).
+
+
+
+\### wait()
+
+\* wait() method releases the lock.
+
+\* wait() is the method of Object class.
+
+\* wait() is the non-static method - public final void wait() throws InterruptedException { //...}
+
+\* wait() should be notified by notify() or notifyAll() methods.
+
+\* wait() method needs to be called from a loop in order to deal with false alarm.
+
+\* wait() method must be called from synchronized context (i.e. synchronized method or block), otherwise it will throw IllegalMonitorStateException
+
+
+
+\### sleep()
+
+\* sleep() method doesn't release the lock.
+
+\* sleep() is the method of java.lang.Thread class.
+
+\* sleep() is the static method - public static void sleep(long millis, int nanos) throws InterruptedException { //... }
+
+\* after the specified amount of time, sleep() is completed.
+
+\* sleep() better not to call from loop(i.e. see code below).
+
+\* sleep() may be called from anywhere. there is no specific requirement.
+
+
+
+\### Q: What is synchronization in multithreading in java ? Give real time example ?
+
+When we start two or more threads within a program, there may be a situation when multiple threads try to access the same resource and finally they can produce unforeseen result due to concurrency issues.
+
+Synchronization in java is the capability to control the access of multiple threads to any shared resource. It allow only one thread to access the shared resource.
+
+\### Why use Synchronization
+
+The synchronization is mainly used to
+
+To prevent thread interference. (fight between threads)
+
+To prevent consistency problem. (abnormal and unexpected value change of resource)
+
+
+
+Thread Synchronization
+
+There are two types of thread synchronization.
+
+\* Mutual Exclusive
+
+\* Cooperation (Inter-thread communication in java)
+
+\### Mutual Exclusive
+
+Mutual Exclusive helps keep threads from interfering with one another while sharing data. This can be done by three ways in java:
+
+\* by synchronized method
+
+\* by synchronized block
+
+\* by static synchronization
+
+Example : Multiple threads on single file. Opening,closing and writing etc.
+
+\### Lock in Java
+
+Synchronization is built around an internal entity known as the lock or monitor. Every object has an lock associated with it. By convention, a thread that needs consistent access to an object's fields has to acquire the object's lock before accessing them, and then release the lock when it's done with them.
+
+When a thread invokes a synchronized method, it automatically acquires the lock for that object and releases it when the thread completes its task.
+
+When a thread acquires a lock, it is said to have entered the monitor. All other threads attempting to enter the locked monitor will be suspended until the first thread exits the monitor.
+
+### Q: Difference between list and set ?
+
+http://net-informations.com/java/cjava/list.htm
+
+https://beginnersbook.com/2014/07/difference-between-list-and-set-in-java/
+
+https://www.java67.com/2013/01/difference-between-set-list-and-map-in-java.html
+
+### Q: Why String is immutable in java?
+
+There are multiple reasons that String is designed to be immutable in Java.
+Because java uses the concept of string literal.Suppose there are 5 reference variables,all refers to one object "sachin".If one reference variable changes the value of the object, it will be affected to all the reference variables. That is why string objects are immutable in java.
+
+1. Requirement of String Pool
+   String pool (String intern pool) is a special storage area in Java heap. When a string is created and if the string already exists in the pool, the reference of the existing string will be returned, instead of creating a new object and returning its reference.
+   If string is not immutable, changing the string with one reference will lead to the wrong value for the other references.
+   (or)
+    Caching: when compiler optimizes your String objects, it sees that if two objects have same value (a="test", and b="test") and thus you need only one string object (for both a and b, these two will point to the same object).
+2. Allow String to Cache its Hashcode
+   The hashcode of string is frequently used in Java. For example, in a HashMap. Being immutable guarantees that hashcode will always the same, so that it can be cashed without worrying the changes.That means, there is no need to calculate hashcode every time it is used. This is more efficient.
+   (or)
+   Since Strings are very popular as HashMap key, it's important for them to be immutable so that they can retrieve the value object which was stored in HashMap. Since HashMap works in the principle of hashing, which requires same has value to function properly. Mutable String would produce two different hashcodes at the time of insertion and retrieval if contents of String was modified after insertion, potentially losing the value object in the map.
+3. Security
+   String is widely used as parameter for many java classes, e.g. network connection, opening files, etc. Were String not immutable, a connection or file would be changed and lead to serious security threat. The method thought it was connecting to one machine, but was not. Mutable strings could cause security problem in Reflection too, as the parameters are strings.
+4. Synchronization and concurrency: making String immutable automatically makes them thread safe thereby solving the synchronization issues.
+5. Class loading: String is used as arguments for class loading. If mutable, it could result in wrong class being loaded (because mutable objects change their state).
+   In summary, the reasons include design, efficiency, and security.
+
+https://www.journaldev.com/16928/java-string
+
+https://www.javatpoint.com/java-string
+
+https://www.geeksforgeeks.org/strings-in-java/
+
+### Q: What is static binding and dynamic binding ?
+
+- Static binding happens at compile-time while dynamic binding happens at runtime.
+- Binding of private, static and final methods always happen at compile time since these methods cannot be overridden. Binding of overridden methods happen at runtime.
+- Java uses static binding for overloaded methods and dynamic binding for overridden methods.
+
+### Q: Can interface be final ? and give the Reason?
+
+No. An interface is a pure abstract class. Hence, all methods in an interface are abstract , and must be implemented in the child classes. So, by extension, none of them can be declared as final. A final method can't be overridden.
+If you declare a class final cannot extend it. If you make a method final you cannot override it and, if you make a variable final you cannot modify it. i.e. use final with Java entities you cannot modify them further.
+
+If you make an interface final, you cannot implement its methods which defies the very purpose of the interfaces. 
+
+https://www.tutorialspoint.com/can-we-declare-an-interface-as-final-in-java
+
+### Q: How HashMap works ?Why we go for HashMap ?
+
+HashMap is a part of collection in Java since 1.2. It provides the basic implementation of Map interface of Java. It stores the data in (Key,Value) pairs. To access a value you must know its key, otherwise you can’t access it. HashMap is known as HashMap because it uses a technique Hashing.[ Hashing](http://quiz.geeksforgeeks.org/hashing-set-1-introduction/) is a technique of converting a large String to small String that represents same String. A shorter value helps in indexing and faster searches.
+
+Few important features of HashMap are:
+
+- HashMap is a part of java.util package.
+- HashMap extends an abstract class AbstractMap which also provides an incomplete implementation of Map interface.
+- It also implements [Cloneable](https://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html) and [Serializable](https://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html) interface. K and V in the above definition represent Key and Value respectively.
+- HashMap doesn’t allow duplicate keys but allows duplicate values. That means A single key can’t contain more than 1 value but more than 1 key can contain a single value.
+- HashMap allows null key also but only once and multiple null values.
+- This class makes no guarantees as to the order of the map; in particular, it does not guarantee that the order will remain constant over time. It is roughly similar to HashTable but is unsynchronized.
+
+**Internal Structure of HashMap**
+
+Internally HashMap contains an array of Node. and a node is represented as a class which contains 4 fields :
+
+1. int hash
+2. K key
+3. V value
+4. Node next
+
+https://www.javatpoint.com/working-of-hashmap-in-java
+
+https://www.geeksforgeeks.org/java-util-hashmap-in-java-with-examples/
+
+https://www.geeksforgeeks.org/internal-working-of-hashmap-java/
+
+https://www.youtube.com/watch?v=CojCE-ojdGY
+
+https://www.youtube.com/watch?v=fSjxhOYPBRI
+
+https://www.youtube.com/watch?v=c3RVW3KGIIE
+
+### Q: What is time and space complexity?
+
+### Q: linkify class?
+
+Linkify take a piece of text and a regular expression and turns all of the regex matches in the text into clickable links. This is particularly useful for matching things like email addresses, web URLs, etc. and making them actionable. Alone with the pattern that is to be matched, a URL scheme prefix is also required. Any pattern match that does not begin with the supplied scheme will have the scheme prepended to the matched text when the clickable URL is created. For instance, if you are matching web URLs you would supply the scheme http://. If the pattern matches example.com, which does not have a URL scheme prefix, the supplied scheme will be prepended to create http://example.com when the clickable URL link is created. 
+
+https://developer.android.com/reference/android/text/util/Linkify.html
+
+http://www.sanfoundry.com/java-andorid-program-demonstrate-linkify-class/
+
+http://www.aviyehuda.com/blog/2011/01/27/android-creating-links-using-linkfy/
+
+https://android-developers.googleblog.com/2008/03/linkify-your-text.html
+
+http://www.indelible.org/ink/android-linkify/
+
+### Q: Abstract class ? can abstract method be final ?
+
+A class that is declared with abstract keyword, is known as abstract class in java. It can have abstract and non-abstract methods (method with body). Achieve abstraction in java using abstract class.
+No. abstract method can’t be final because it has to overridden by other class.
+
+### Q: Remote FactoryClass?
+
+### Q: What is searching techniques ?
+
+### Q: What is sorting ? explain some sorting techniques and write programs?
+
+### Q: Java design pattern.
+
+### Q: Overloading and Overriding?
+
+### Q: What if finally got exception ?
+
+https://beginnersbook.com/2013/04/java-finally-block/
+
+https://stackoverflow.com/questions/3779285/exception-thrown-in-catch-and-finally-clause
+
+### Q: Write a program for fibonacci series?
+
+### Q: Reverse a string using recursion ?
+
+### Q: How to dump a Database to an  ArrayList?
+
+### Q: Find duplicate in array?
+
+### Q: 0->1 and 1->0  without using conditional operators?
+
+### Q: Accessing variables in static context related problems?
+
+### Q: What is exception handling?
+
+### Q: How many objects will get created in String, related problem?
+
+### Q: Abstract classes?
+
+Abstract class in Java is similar to interface except that it can contain default method implementation. An abstract class can have an abstract method without body and it can have methods with implementation also.
+
+abstract keyword is used to create a abstract class and method. Abstract class in java can’t be instantiated. An abstract class is mostly used to provide a base for subclasses to extend and implement the abstract methods and override or use the implemented methods in abstract class.
+
+https://www.journaldev.com/1582/abstract-class-in-java
+
+https://www.geeksforgeeks.org/abstract-classes-in-java/
+
+https://www.javatpoint.com/abstract-class-in-java
+
+https://beginnersbook.com/2013/05/java-abstract-class-method/
+
+https://www.guru99.com/java-abstract-class-method.html
+
+### Q: What is static blocks? Use?
+
+1. A static block is a block of code which contains code that executes at class loading time.
+
+2. A static keyword is prefixed before the start of the block.
+
+3. All static variables can be accessed freely
+
+4. Any non-static fields can only be accessed through object reference,thus only after object construction.
+
+5. multiple static blocks would execute in the order they are defined in the class.
+
+6. All static blocks executes only once per classloader
+
+7. A typical static block looks like
+
+   `static{``// code for static block``}`
+
+   http://www.bullraider.com/java/core-java/scjp-ocjp/290-static-non-static-block
+
+   https://www.geeksforgeeks.org/g-fact-79/
+
+   ### Q: Generics in java ?
+
+   ### Q: Polymorphism ?
+
+   ### Q: Method overriding & overloading ?
+
+   ### Q: 9 coin problems? There 9 coins with 1 heavy weghted coin. Find the fake coin? Worst case, best case etc?
+
+   ### Q: How to arrange value in HashMap in incoming elements ways?
+
+   ### Q: Comparator and comparable ?
+
+   Comparable and Comparator both are interfaces and can be used to sort collection elements.
+
+    
+
+   | **Comparable**                                               | **Comparator**                                               |
+   | ------------------------------------------------------------ | ------------------------------------------------------------ |
+   | 1) Comparable provides **single sorting sequence**. In other words, we can sort the collection on the basis of single element such as id or name or price etc. | Comparator provides **multiple sorting sequence**. In other words, we can sort the collection on the basis of multiple elements such as id, name and price etc. |
+   | 2) Comparable **affects the original class** i.e. actual class is modified. | Comparator **doesn't affect the original class** i.e. actual class is not modified. |
+   | 3) Comparable provides **compareTo() method** to sort elements. | Comparator provides **compare() method** to sort elements.   |
+   | 4) Comparable is found in **java.lang** package.             | Comparator is found in **java.util** package.                |
+   | 5) We can sort the list elements of Comparable type by **Collections.sort(List)** method. | We can sort the list elements of Comparator type by **Collections.sort(List,Comparator)** method. |
+
+   - http://javarevisited.blogspot.in/2011/06/comparator-and-comparable-in-java.html
+### Q: What do you mean by composition ?
+### Q: What is Map ? Write a program to put and get value from HasMap ?
+### Q: What is encapsulation ?
+### Q: What is weak reference ?
+http://javapapers.com/core-java/java-weak-reference/
+
+http://www.programmr.com/blogs/what-every-java-developer-should-know-strong-and-weak-references
+### Q: Runtime Polymorphism ?
 ### Q Difference between Object Oriented and MVP ? 
 ### Q Are you aware of Android componets, support libraries and third party libraries?
 ### Q Have you ever develop android SDK ? What are things you take care while developing any kind of library ?
@@ -1469,10 +1441,61 @@ Questions about layouts in Android. Linear Relative etc.
 ### Q What is MVP, MVC, MVVP, MVVM ?
 ### Q What are the Ads integration you have done ?
 ### Q How you handle memory leaks ? and optimisation ?
-### Q: Reverse  a stack ? reverse and array ?
 ### Q: What is complexity of HashMap with node n?
 ### Q: Find middle element of linkedlist?
 ### Q: fail pass in DS?
 ### Q: How to find unique element in array?
 ### Q: 2D matrix problem ?
 ### Q: Printing O, Printing O, Printing AO problem?
+### Q: Linkedlist intersecting point ?
+### Q: Singleton ?
+### Q:  Array to find unique element?
+### Q: final keyword ?
+### Q: Why java not supported Multiple inheritance ? tell me solution?
+### Q: Puzzle : 1 to 100 people in circle shooting each left one. Give a generic solution for N and also find which one will be last ?
+### Q: Design Problem - Deck of cards problem.
+### Q: Diff b/w these 2
+### Q: String a= “abcd”;
+String a =new String(“abcd);
+### Q: Diff between Object and Object reference ?
+### Q: Write sorting algorithm ? Quick, Merge sort etc ?
+### Q: There is an array. Find the f(frquency) >=length/2
+Array ar=[1,1,2,2,3,5,1]
+f(ar[i]) >=length/2
+
+### Q: How to sort an array ? What internally it does ?
+### Q: How HashMap works ?
+### Q: What is reflection ? what is getAccess and invoke method ?
+### Q: Transpose the metrixs.
+### Q: Given a string. Find the repeated string how many times it has occurred ?
+### Q: Given a string find the integer values in string and find the sum ?
+### Q: given an array find the 3rd and 4th largest element ?
+### Q: What is access modifiers ?
+### Q: Diff b/w ArrayList and Vector ?
+### Q: How annotations works ?
+### Q: What do you mean by Serializable ?
+### Q: What do you mean by abstraction and interface ?
+### Q: What is exception handling ?
+### Q: What is difference between Serializable & Parcelable ? How parcelable is more faster than serializable ?
+### Q: What is Set ? LinkedHashSet ? TreeSet ?
+### Q: difference b/w Array and ArrayList ?
+### Q: Explain encapsulation and abstraction using real time example ?
+### Q: Problem of find time using sand. Take 2 bottle and find 10 minutes, 12 minutes, and 9 minutes ?
+### Q: Find a submatrix inside a matrix 
+### Q: Make an 8 sided dice from a coin.
+### Q: 10 bags with balls, one bag is defective question.
+### Q: Toggling doors question, every door in first pass, alternate in second pass ... till 100 doors.
+### Q: 1000 wine bottles, one is poisoned, you have 10 prisoners question.
+### Q: Write a function which takes in the root node of a tree and outputs true or false depending on whether that tree is symmetric or not.
+### Q: How would I search a name of a student in all of the Universities in India and how would I optimise it?  Using trie. Optimize using compression.
+### Q: find the sum of odd positioned nodes of a BST.
+### Q: There is lift in 4th floor, there is 2 person one is 3rd floor and another one in 5th floor presses the button on same time. Where this lift will go?
+### Q: How to find unique element in an array ?
+### Q: diff b/w throw and throws ?
+### Q: Reflections ?
+### Q: What do you mean by anonymous class ?
+### Q: if TOGETHER is equal to RQEGRJCT then what will be for PAROLE ?
+### Q: 1,2,512,27,58,121…… next number(248 ? 244 ? 198? 190?)
+### Q: There is an sorted array 5,4,3,2,0,1 shuffled due to some reason. How to find the origin (0) of that array. Take care of complexity?
+### Q: Star pattern problem
+### Q: Reverse  a stack ? reverse and array ?
