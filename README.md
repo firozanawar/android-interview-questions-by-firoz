@@ -1499,3 +1499,31 @@ f(ar[i]) >=length/2
 ### Q: There is an sorted array 5,4,3,2,0,1 shuffled due to some reason. How to find the origin (0) of that array. Take care of complexity?
 ### Q: Star pattern problem
 ### Q: Reverse  a stack ? reverse and array ?
+### Q: Diff b/w sparseArray and HashMap ?
+Sparse arrays can be used to replace hash maps when the key is a primitive type. There are some variants for different key/value type even though not all of them are publicly available.
+
+Benefits are:
+
+- Allocation-free
+- No boxing
+
+Drawbacks:
+
+- Generally slower, not indicated for large collections
+- They won't work in non-android project
+
+ 
+
+- The SparseArray is made to be **memory efficient** than using the regular HashMap, that is does not allow multiple gaps within the array not like HashMap.
+- SparseArray is the choice you should make when your map key is an integer, and those integers are not sequential, meaning not 0, 1, 2, 3, 4, ... n - but more like, 43, 2045, 12, 5.
+- Main purpose of SparseArray in Android development is to have a memory efficient integer to object mapping.
+
+References:-
+
+- http://gunhansancar.com/sparsearray-vs-hashmap/
+
+### Q: What is weak reference ?
+
+http://javapapers.com/core-java/java-weak-reference/
+
+http://www.programmr.com/blogs/what-every-java-developer-should-know-strong-and-weak-references
