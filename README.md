@@ -1119,6 +1119,10 @@ https://www.javatpoint.com/object-class
 ### Q: Difference between StringBuffer and StringBuilder ?
 https://www.journaldev.com/538/string-vs-stringbuffer-vs-stringbuilder
 
+https://www.geeksforgeeks.org/stringbuffer-class-in-java/
+
+https://www.geeksforgeeks.org/stringbuilder-class-in-java-with-examples/
+
 StringBuffer was the only choice for String manipulation till Java 1.4 but it has one disadvantage that all of its public methods are synchronized. StringBuffer provides Thread safety but on a performance cost.
 
 In most of the scenarios, we don’t use String in a multithreaded environment, so Java 1.5 introduced a new class StringBuilder that is similar to StringBuffer except thread safety and synchronization.
@@ -1127,7 +1131,7 @@ So if you are in a single threaded environment or don’t care about thread safe
 
 ![Alt text](https://2.bp.blogspot.com/-QHIf55P3o2I/W_FZaQ8YuXI/AAAAAAAAMmY/WXb342XKhCQd2iVotRwJ77-XgXSlGcV3gCLcBGAs/s640/String%2Band%2BStringbuffer%2Band%2BStringBuilder.png "Optional title")
 
-\### Q: Difference between sleep and wait ?
+### Q: Difference between sleep and wait ?
 
 A wait can be "woken up" by another thread calling notify on the monitor which is being waited on whereas a sleep cannot. Also a wait (and notify) must happen in a block synchronized on the monitor object whereas sleep does not.
 
@@ -1166,7 +1170,6 @@ sleep(n) says “I’m done with my timeslice, and please don’t give me anothe
 \* wait() method must be called from synchronized context (i.e. synchronized method or block), otherwise it will throw IllegalMonitorStateException
 
 
-
 \### sleep()
 
 \* sleep() method doesn't release the lock.
@@ -1181,9 +1184,11 @@ sleep(n) says “I’m done with my timeslice, and please don’t give me anothe
 
 \* sleep() may be called from anywhere. there is no specific requirement.
 
+https://www.youtube.com/watch?v=L95658yXRgI
 
+https://www.youtube.com/watch?v=TCd8QIS-2KI
 
-\### Q: What is synchronization in multithreading in java ? Give real time example ?
+### Q: What is synchronization in multithreading in java ? Give real time example ?
 
 When we start two or more threads within a program, there may be a situation when multiple threads try to access the same resource and finally they can produce unforeseen result due to concurrency issues.
 
@@ -1196,8 +1201,6 @@ The synchronization is mainly used to
 To prevent thread interference. (fight between threads)
 
 To prevent consistency problem. (abnormal and unexpected value change of resource)
-
-
 
 Thread Synchronization
 
@@ -1260,6 +1263,8 @@ https://www.journaldev.com/16928/java-string
 https://www.javatpoint.com/java-string
 
 https://www.geeksforgeeks.org/strings-in-java/
+
+https://javarevisited.blogspot.com/2010/10/why-string-is-immutable-or-final-in-java.html
 
 ### Q: What is static binding and dynamic binding ?
 
@@ -1361,6 +1366,11 @@ https://stackoverflow.com/questions/3779285/exception-thrown-in-catch-and-finall
 
 ### Q: What is exception handling?
 
+https://www.journaldev.com/1696/exception-handling-in-java
+
+https://www.geeksforgeeks.org/exceptions-in-java/
+
+https://beginnersbook.com/2013/04/java-exception-handling/
 ### Q: How many objects will get created in String, related problem?
 
 ### Q: Abstract classes?
