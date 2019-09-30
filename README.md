@@ -1070,6 +1070,12 @@ http://www.dre.vanderbilt.edu/~schmidt/android/android-4.0/external/proguard/doc
 ### Q: How to make connection using okhttp instead on Retrofit?
 ### Q: How you can give runtime permission without user knowledge ? Using Accessibility service ? adb shell commands etc ?
 ### Q: Have you ever build android OS? Kernel drivers etc ?
+### Q Are you aware of Android componets, support libraries and third party libraries?
+### Q Have you ever develop android SDK ? What are things you take care while developing any kind of library ?
+### Q Have you ever worked on VideoPlayer, VideoView and ExoPlayer etc ?
+### Q What is MVP, MVC, MVVP, MVVM ?
+### Q What are the Ads integration you have done ?
+### Q How you handle memory leaks ? and optimisation ?
 
 ### **************************************************************
 # General Questions (Java, DS, Alog, other logical questions) 
@@ -1336,6 +1342,12 @@ http://www.indelible.org/ink/android-linkify/
 A class that is declared with abstract keyword, is known as abstract class in java. It can have abstract and non-abstract methods (method with body). Achieve abstraction in java using abstract class.
 No. abstract method can’t be final because it has to overridden by other class.
 
+https://www.journaldev.com/1582/abstract-class-in-java
+
+https://www.geeksforgeeks.org/abstract-classes-in-java/
+
+https://beginnersbook.com/2013/05/java-abstract-class-method/
+
 ### Q: Remote FactoryClass?
 
 ### Q: What is searching techniques ?
@@ -1445,12 +1457,6 @@ http://javapapers.com/core-java/java-weak-reference/
 http://www.programmr.com/blogs/what-every-java-developer-should-know-strong-and-weak-references
 ### Q: Runtime Polymorphism ?
 ### Q Difference between Object Oriented and MVP ? 
-### Q Are you aware of Android componets, support libraries and third party libraries?
-### Q Have you ever develop android SDK ? What are things you take care while developing any kind of library ?
-### Q Have you ever worked on VideoPlayer, VideoView and ExoPlayer etc ?
-### Q What is MVP, MVC, MVVP, MVVM ?
-### Q What are the Ads integration you have done ?
-### Q How you handle memory leaks ? and optimisation ?
 ### Q: What is complexity of HashMap with node n?
 ### Q: Find middle element of linkedlist?
 ### Q: fail pass in DS?
@@ -1474,7 +1480,6 @@ Array ar=[1,1,2,2,3,5,1]
 f(ar[i]) >=length/2
 
 ### Q: How to sort an array ? What internally it does ?
-### Q: How HashMap works ?
 ### Q: What is reflection ? what is getAccess and invoke method ?
 ### Q: Transpose the metrixs.
 ### Q: Given a string. Find the repeated string how many times it has occurred ?
@@ -1485,7 +1490,6 @@ f(ar[i]) >=length/2
 ### Q: How annotations works ?
 ### Q: What do you mean by Serializable ?
 ### Q: What do you mean by abstraction and interface ?
-### Q: What is exception handling ?
 ### Q: What is difference between Serializable & Parcelable ? How parcelable is more faster than serializable ?
 ### Q: What is Set ? LinkedHashSet ? TreeSet ?
 ### Q: difference b/w Array and ArrayList ?
