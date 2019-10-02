@@ -1356,7 +1356,12 @@ https://beginnersbook.com/2013/05/java-abstract-class-method/
 
 ### Q: Java design pattern.
 
-### Q: Overloading and Overriding?
+### Q: Overloading and Overriding? Polymorphism ?
+https://www.tutorialspoint.com/java/java_polymorphism.htm
+
+https://www.geeksforgeeks.org/polymorphism-in-java/
+
+https://www.geeksforgeeks.org/polymorphism-in-java/
 
 ### Q: What if finally got exception ?
 
@@ -1425,8 +1430,6 @@ https://www.guru99.com/java-abstract-class-method.html
 
    ### Q: Generics in java ?
 
-   ### Q: Polymorphism ?
-
    ### Q: Method overriding & overloading ?
 
    ### Q: 9 coin problems? There 9 coins with 1 heavy weghted coin. Find the fake coin? Worst case, best case etc?
@@ -1449,8 +1452,20 @@ https://www.guru99.com/java-abstract-class-method.html
 
    - http://javarevisited.blogspot.in/2011/06/comparator-and-comparable-in-java.html
 ### Q: What do you mean by composition ?
+Java composition is achieved by using instance variables that refers to other objects.  If you are looking for code reuse and the relationship between two classes is has-a then you should use composition rather than inheritance. Benefit of using composition in java is that we can control the visibility of other object to client classes and reuse only what we need.
+
+https://www.geeksforgeeks.org/association-composition-aggregation-java/
+
+https://www.javatpoint.com/q/5101/what-is-composition-in-java?
+
+https://www.journaldev.com/1325/composition-in-java-example
+
+https://youtu.be/VfTiLE3RZds 
 ### Q: What is Map ? Write a program to put and get value from HasMap ?
 ### Q: What is encapsulation ?
+https://www.tutorialspoint.com/java/java_encapsulation.htm
+
+https://www.geeksforgeeks.org/encapsulation-in-java/
 ### Q: What is weak reference ?
 http://javapapers.com/core-java/java-weak-reference/
 
@@ -1465,15 +1480,56 @@ http://www.programmr.com/blogs/what-every-java-developer-should-know-strong-and-
 ### Q: Printing O, Printing O, Printing AO problem?
 ### Q: Linkedlist intersecting point ?
 ### Q: Singleton ?
+It is simple, as a java, Android also supporting singleton. -
+Singleton is a part of Gang of Four design pattern and it is categorized under creational design patterns.
+* Static member : This contains the instance of the singleton class.
+* Private constructor : This will prevent anybody else to instantiate the Singleton class.
+* Static public method : This provides the global point of access to the Singleton object and returns the instance to the client calling class.
+
+* create private instance
+* create private constructor
+* use getInstance() of Singleton class
+
+public class Logger{ 
+
+private static Logger objLogger; 
+
+private Logger(){ //ToDo here } 
+
+public static Logger getInstance() { 
+
+if (objLogger == null) 
+
+{ objLogger = new Logger(); 
+
+} 
+
+return objLogger; 
+
+} 
+
+}
 ### Q:  Array to find unique element?
-### Q: final keyword ?
+### Q: final keyword ? What is blank final variable ?
+A blank final variable in Java is a final variable that is not initialized during declaration.
+If we have more than one constructors or overloaded constructor in class, then blank final variable must be initialized in all of them.
+Blank final variables are used to create immutable objects (objects whose members can’t be changed once initialized).
+
+https://www.geeksforgeeks.org/final-keyword-java/
+
+https://www.geeksforgeeks.org/final-keyword-java/
 ### Q: Why java not supported Multiple inheritance ? tell me solution?
+https://www.geeksforgeeks.org/java-and-multiple-inheritance/
+
 ### Q: Puzzle : 1 to 100 people in circle shooting each left one. Give a generic solution for N and also find which one will be last ?
 ### Q: Design Problem - Deck of cards problem.
 ### Q: Diff b/w these 2
 ### Q: String a= “abcd”;
 String a =new String(“abcd);
 ### Q: Diff between Object and Object reference ?
+https://coderanch.com/t/407807/java/difference-object-object-reference
+
+https://www.hacktrix.com/difference-between-object-and-reference-in-java
 ### Q: Write sorting algorithm ? Quick, Merge sort etc ?
 ### Q: There is an array. Find the f(frquency) >=length/2
 Array ar=[1,1,2,2,3,5,1]
@@ -1489,8 +1545,15 @@ f(ar[i]) >=length/2
 ### Q: Diff b/w ArrayList and Vector ?
 ### Q: How annotations works ?
 ### Q: What do you mean by Serializable ?
+Java provides a mechanism, called object serialization where an object can be represented as a sequence of bytes that includes the object's data as well as information about the object's type and the types of data stored in the object. object can be serialized on one platform and deserialized on an entirely different platform.
+Serialization in java is a mechanism of writing the state of an object into a byte stream. It is mainly used to travel object's state on the network (known as marshaling). The reverse operation of serialization is called deserialization. Serializable is a marker interface (has no data member and method).
+
+https://www.geeksforgeeks.org/serialization-in-java/
 ### Q: What do you mean by abstraction and interface ?
+https://javapapers.com/core-java/abstract-and-interface-core-java-2/difference-between-a-java-interface-and-a-java-abstract-class/
 ### Q: What is difference between Serializable & Parcelable ? How parcelable is more faster than serializable ?
+https://android.jlelse.eu/parcelable-vs-serializable-6a2556d51538
+https://stackoverflow.com/questions/3323074/android-difference-between-parcelable-and-serializable
 ### Q: What is Set ? LinkedHashSet ? TreeSet ?
 ### Q: difference b/w Array and ArrayList ?
 ### Q: Explain encapsulation and abstraction using real time example ?
@@ -1506,8 +1569,10 @@ f(ar[i]) >=length/2
 ### Q: There is lift in 4th floor, there is 2 person one is 3rd floor and another one in 5th floor presses the button on same time. Where this lift will go?
 ### Q: How to find unique element in an array ?
 ### Q: diff b/w throw and throws ?
+https://beginnersbook.com/2013/04/difference-between-throw-and-throws-in-java/
 ### Q: Reflections ?
 ### Q: What do you mean by anonymous class ?
+https://www.geeksforgeeks.org/anonymous-inner-class-java/
 ### Q: if TOGETHER is equal to RQEGRJCT then what will be for PAROLE ?
 ### Q: 1,2,512,27,58,121…… next number(248 ? 244 ? 198? 190?)
 ### Q: There is an sorted array 5,4,3,2,0,1 shuffled due to some reason. How to find the origin (0) of that array. Take care of complexity?
