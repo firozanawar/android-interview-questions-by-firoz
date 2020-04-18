@@ -1606,3 +1606,181 @@ References:-
 http://javapapers.com/core-java/java-weak-reference/
 
 http://www.programmr.com/blogs/what-every-java-developer-should-know-strong-and-weak-references
+
+
+
+### 2020 quetions 
+
+Image loading library mechanism
+
+How to manage imageview in recyclerview if downloading image from url without third party.
+
+If you pass activitys context in Singleton object and activity is destroyed. what will happen? 
+
+Implement Asynctask class same as android.
+
+What is viewholder pattern.
+
+How recycling works in recylerview?
+
+Why is constraint layout better in performance
+
+Q:View Lifecycle
+
+Q:HashMap internal functionality
+
+Q:How many objects if string concatenated
+
+Q:Try catch(Exception){} catch(NullPointrException){} - Output
+
+Q:Public method in base class and overridden function is protected.. what will happen?
+
+Q:Usecase of Viewmodel
+
+Q: kth smallest or kth largest without sorting.
+
+Q: Max sum between two nodes in a binary tree
+
+Q:What is Viewmodel factory
+
+Q: How repository object is created and passed to viewmodel.
+
+Q: ViewModel vs Android ViewModel
+
+Q: MVVM sample code
+
+Q: Caching in Volley (Netwoprk layer optimizxations)
+
+Q: What is the use of DiffUtil?
+
+Q: MVVM Vs MVP
+
+Q: What is Clean Architecture?
+
+Q: Difference between ViewModel and Presenter?
+
+Q: Sub Component and Scopes in Dagger2?
+
+Q: Drawbacks of Dagger and how Dagger2 is different from Dagger?
+
+Q: How to handle 2 classes dependency in each other?
+
+Q: What is repository in MVVM?
+
+Q: How to upload aar?
+
+Q: What is lifecycle of Livedata?
+
+Q: How ViewModel works internally?
+
+Q: Does Workmanger works in background?
+
+Q: Type of Livedata?
+
+Q: Diff btw MVP & MVVM?
+
+Q: What is illegalStateException ?
+
+Q; What is memory leak ? How it comes? How to handle it ?
+
+Q: What is out of memory error ? How to handle it ?
+
+Q: Ordered HashMap ?? Answer - LinkedHashMap
+
+Q: explain ViewModel? Advantages?
+
+Q; What is window leak?
+
+Q: While attaching a fragment IllegalStateException comes? Why it comes ?
+
+Q: Given a JSON, design an App showing cities in list with sorted order based on the score of cities.
+
+⇒ What is memory leak? What tools are used to detect and find the leak ?
+
+⇒ How LeakCanary works internally ?
+
+⇒ What is gc ? How does GC work ? How does JVM know the object is ready for gc ?
+
+"⇒ Give 2 classes A and B, A having object of B, and B having object of A,
+
+ Is this object garbage collected ? If Yes Why, If No Why?"
+ 
+⇒ Given 1 array, sum given, find the pairs and no. of pairs?
+
+⇒ Tell me a practical example or situation which can cause the leak ?
+
+⇒ Explain MVVM ? Why MVVM ? VM in MVVM and Why ?
+
+⇒ How memory leak is handled by VM?
+
+⇒ How to handle challenges? Memory optimisation ?
+
+⇒ Difference b/w TextureView and SurfaceView ? Which is recommended to use and why ?
+
+⇒ How can you find which activity is on top ?
+
+⇒ Launch modes ?
+
+⇒ Communication between Threads ?
+
+⇒ What is thread safety ?
+
+⇒ What is a Handler ? How Handler work internally ? Looper? Message Queue ? Can there be 2 Message Queues ?
+
+⇒ How to fix handler leaks?
+
+⇒ What is a static handler ?
+
+⇒ Custom view related question ? How to create a custom view in android ?
+
+⇒ What is hashcode and equal in Object class? Purpose ?
+
+⇒ Do you know Kotlin ?
+
+⇒ What is final in java ?
+
+"⇒ What is an open keyword in kotlin ? explain in detail ? open with class and method ? 
+
+Why not make it open by default ?"
+
+⇒ Explain overriding in details with a real time example ?
+
+⇒ Reference type in java ? 4 types? What is WeakReference ? Use ?
+
+⇒ How objects travel? Serialization and DeSerialization?
+
+⇒ Given 2 LinkedIn and find the intersection point? Check if they crossed ?
+
+⇒ What is DASH ? How DASH works ? HLS vs DASH ?
+
+"⇒ What is preferable to use if a video is 10 sec ? and another video is 1 hr movie ?
+
+ DASH or mp4? Why not use VideoView ?"
+ 
+⇒ How mp4 gets played using MediaPlayer? Internal?
+
+⇒ How to update UI from background thread ?
+
+Diff btw getFragmentManager && getChildFragmentManager 
+
+What is the best approach to download a video from api.
+
+Can service run without thread?
+
+What is Foreground services ? 
+
+What is the restriction in service on API level 28. ? What would be the solutoin?
+
+What is backstack ? Exaplain in deatil? What goes inside the backstack ?
+
+Diff btw ActivityContext and Application context? Where to use which and why ?
+
+Can a dynamic view in activity can be created using Application context ?
+
+What are the type of fragment transactions ? 
+
+What is the meaning of addToBackStack with null parameter?
+
+What is the use of thread pool executors ?
+
+What design pattern you have used in your current project ?
