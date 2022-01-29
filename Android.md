@@ -17,3 +17,14 @@ https://www.tutorialspoint.com/android/android_overview.htm
 http://heavy.com/tech/2013/06/what-is-android-os-operating-system-info-wiki/
 
 https://recombu.com/mobile/article/what-is-android-and-what-is-an-android-phone_M12615.html#
+
+### Q: What do you mean by Open Source Software?
+Open-source software (OSS) is a type of computer software in which source code is released under a license in which the copyright holder grants users the rights to study, change, and distribute the software to anyone and for any purpose. Open source software is usually developed as a public collaboration and made freely available.
+
+### Q: Android is Based on Linux, But What Does That Mean?
+
+To know about it read the below blogs..
+
+https://www.howtogeek.com/189036/android-is-based-on-linux-but-what-does-that-mean/
+
+https://www.unixmen.com/why-is-android-built-on-linux-kernel/
