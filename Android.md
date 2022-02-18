@@ -28,3 +28,28 @@ To know about it read the below blogs..
 https://www.howtogeek.com/189036/android-is-based-on-linux-but-what-does-that-mean/
 
 https://www.unixmen.com/why-is-android-built-on-linux-kernel/
+
+### Q: What happens when activity rotated ?
+Activity is recreated after each rotation by default and onCreate() method of activity called again. You can override this behaviour with *configChanges* attribute of the activity tag in AndroidManifest. Calling setRetainInstance(true) on a Fragment is similar to setting the android:configChanges flag on an Activity. It signals to Android that you want to continue using the same instance of the current Fragment, so all of your member variables will remain untouched.
+
+Life Cycle of orientation:-
+
+onPause(); 
+
+onSaveInstanceState(); 
+
+onStop(); 
+
+onDestroy(); 
+
+onCreate(); 
+
+onStart(); 
+
+onResume();
+
+https://medium.com/google-developers/activity-revival-and-the-case-of-the-rotating-device-167e34f9a30d
+
+### Q: Explain about GCM implementation?
+
+![Alt text](https://androidexample.com/upload/content/Push_notification_Workflow.png "Optional title")
