@@ -17,3 +17,8 @@ https://www.geeksforgeeks.org/introduction-of-process-management/
 https://www.tutorialspoint.com/operating_system/os_processes.htm
 
 https://www.studytonight.com/operating-system/operating-system-processes
+
+### Q: Difference between SOAP and REST ?
+https://www.guru99.com/comparison-between-web-services.html
+
+https://dzone.com/articles/difference-between-rest-and-soap-api
