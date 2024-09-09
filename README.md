@@ -184,24 +184,59 @@ When we say that Android is based on Linux, it refers to several key aspects of 
 Android is based on the Linux kernel, which means it uses the Linux kernel as its foundational layer for managing hardware resources and system operations. However, Android is not simply a version of Linux; it is a distinct operating system built on top of the Linux kernel with its own application framework, runtime environment, and user interface. The Linux kernel provides the low-level system functions, while Android adds layers of functionality and customization tailored for mobile devices, creating a unique and robust platform for running applications on a wide range of hardware.
 
 ### Q: What is process in OS ? And what is diff b/w process and thread ?
-A process is an instance of a program running in a computer. It is close in meaning to task , a term used in some operating systems. A process is basically a program in execution. The execution of a process must progress in a sequential fashion.
-* Threads are used for small tasks, whereas processes are used for more 'heavyweight' tasks
-* Threads within the same process share the same address space, whereas different processes do not.
-* Threads share the address space of the process that created it; processes have their own address space.
-* Threads have direct access to the data segment of its process; processes have their own copy of the data segment of the parent process.
-* Threads can directly communicate with other threads of its process; processes must use interprocess communication to communicate with sibling processes.
-* Threads have almost no overhead; processes have considerable overhead.
-* New threads are easily created; new processes require duplication of the parent process.
-* Threads can exercise considerable control over threads of the same process; processes can only exercise control over child processes.
-* Changes to the main thread (cancellation, priority change, etc.) may affect the behavior of the other threads of the process; changes to the parent process do not affect child processes.
+In an operating system (OS), processes and threads are fundamental concepts used to manage and execute tasks. Here’s a detailed explanation of what they are and the differences between them:
 
-https://www.geeksforgeeks.org/difference-between-process-and-thread/
+### **What is a Process?**
 
-https://www.geeksforgeeks.org/introduction-of-process-management/
+**Definition:**
+A process is an instance of a program in execution. It includes the program code, current activity, and the resources needed for execution. Essentially, a process is a container that holds everything required to run a program.
 
-https://www.tutorialspoint.com/operating_system/os_processes.htm
+**Components of a Process:**
+1. **Program Code:** The executable code that the process runs.
+2. **Process Stack:** Contains the execution history, function calls, and local variables.
+3. **Heap:** Used for dynamic memory allocation.
+4. **Data Section:** Contains global and static variables.
+5. **Process Control Block (PCB):** Maintains process-related information such as process state, program counter, CPU registers, and memory management information.
 
-https://www.studytonight.com/operating-system/operating-system-processes
+**Characteristics:**
+- **Isolation:** Processes are isolated from each other, meaning that one process cannot directly access the memory or resources of another process.
+- **Resource Allocation:** Each process is allocated its own set of resources (e.g., CPU time, memory), which are managed by the OS.
+- **Overhead:** Creating and managing processes involves more overhead compared to threads due to the need for separate memory and resource management.
+
+### **What is a Thread?**
+
+**Definition:**
+A thread is the smallest unit of execution within a process. It is sometimes referred to as a lightweight process because it shares the resources of its parent process but operates independently.
+
+**Components of a Thread:**
+1. **Thread Stack:** Each thread has its own stack for function calls and local variables.
+2. **Program Counter:** Keeps track of the thread's current execution point.
+3. **Thread-Specific Data:** Contains thread-specific information like local variables and thread-specific states.
+
+**Characteristics:**
+- **Shared Resources:** Threads within the same process share resources such as memory space, file descriptors, and process resources. This makes communication between threads faster and more efficient.
+- **Lightweight:** Threads are lighter than processes because they share the same address space and resources. Creating and managing threads involves less overhead compared to processes.
+- **Concurrency:** Threads enable concurrent execution within a single process, allowing multiple operations to proceed simultaneously.
+
+### **Differences Between Process and Thread**
+
+| **Aspect**            | **Process**                                                   | **Thread**                                                     |
+|-----------------------|---------------------------------------------------------------|----------------------------------------------------------------|
+| **Definition**        | An independent program in execution, including code, data, and system resources. | The smallest unit of execution within a process.               |
+| **Isolation**         | Processes are isolated from each other; they have separate memory spaces. | Threads share the same memory space and resources within the same process. |
+| **Resource Allocation** | Processes require more overhead to manage, as they have their own resources and memory space. | Threads have lower overhead since they share the process's resources. |
+| **Communication**     | Inter-process communication (IPC) mechanisms are required for processes to communicate. | Threads can communicate more easily through shared memory.    |
+| **Creation Overhead** | Creating a new process is more resource-intensive and slower. | Creating a new thread is generally faster and requires less memory. |
+| **Fault Tolerance**   | A failure in one process does not directly affect other processes. | A failure in one thread can potentially affect other threads within the same process. |
+| **Examples**          | Running multiple applications, such as a web browser and a text editor. | Different threads handling user input, rendering, and network communication in a web browser. |
+
+### **Summary**
+
+- **Processes** are independent execution units that have their own memory space and resources, providing isolation and stability. They are used to run separate programs and applications.
+  
+- **Threads** are smaller units of execution within a process that share the process’s resources, enabling more efficient multitasking and communication. Threads are used for parallel execution of tasks within a single application or program.
+
+Understanding these concepts is crucial for efficient program design and system management, particularly in developing applications that require multitasking or concurrency.
 
 ### Q: What happens when activity rotated ?
 Activity is recreated after each rotation by default and onCreate() method of activity called again. You can override this behaviour with *configChanges* attribute of the activity tag in AndroidManifest. Calling setRetainInstance(true) on a Fragment is similar to setting the android:configChanges flag on an Activity. It signals to Android that you want to continue using the same instance of the current Fragment, so all of your member variables will remain untouched.
