@@ -3,7 +3,7 @@ Here is collection for all interview questions asked in different companies in I
 
 ### Q: What is Android ?
 
-Certainly! Android is a widely used mobile operating system developed by Google, primarily designed for touchscreen devices such as smartphones and tablets. Here’s a detailed breakdown of what Android is:
+Android is a widely used mobile operating system developed by Google, primarily designed for touchscreen devices such as smartphones and tablets. Here’s a detailed breakdown of what Android is:
 
 ### **1. History and Development**
 
@@ -60,7 +60,7 @@ Certainly! Android is a widely used mobile operating system developed by Google,
 In summary, Android is a versatile and flexible operating system with a rich set of features and a broad user base. It supports a wide range of devices and offers extensive customization options for both users and developers.
 
 ### Q: What do you mean by Open Source Software?
-Certainly! Open Source Software (OSS) is a type of software that is characterized by its open availability and collaborative development model. Here's a detailed breakdown of what open source software entails:
+Open Source Software (OSS) is a type of software that is characterized by its open availability and collaborative development model. Here's a detailed breakdown of what open source software entails:
 
 ### **1. Definition and Core Principles**
 
@@ -131,9 +131,57 @@ Open source software has become a critical component of the modern technology la
 In summary, open source software represents a collaborative and transparent approach to software development, providing users with the freedom to use, modify, and distribute code. It fosters innovation, enhances security, and offers cost-effective solutions, while also presenting certain challenges that users and developers must navigate.
 
 ### Q: Android is Based on Linux, But What Does That Mean?
-https://www.howtogeek.com/189036/android-is-based-on-linux-but-what-does-that-mean/
+When we say that Android is based on Linux, it refers to several key aspects of how Android is structured and how it leverages the Linux operating system to provide its functionalities. Here’s a detailed explanation of what this means:
 
-https://www.unixmen.com/why-is-android-built-on-linux-kernel/
+### **1. **Linux Kernel Foundation**
+
+- **Kernel Basics:** The kernel is the core part of an operating system that manages hardware resources, such as CPU, memory, and peripheral devices. It acts as an intermediary between the hardware and the applications running on the system.
+
+- **Linux Kernel:** Android uses the Linux kernel as its core. This means that many of the foundational tasks and services are managed by the Linux kernel, including process management, memory management, and hardware abstraction. The Linux kernel is open-source, which means its source code is available for modification and distribution.
+
+### **2. **Android's Adaptation of Linux**
+
+- **Customization:** Although Android is based on the Linux kernel, it’s not identical to a standard Linux distribution (like Ubuntu or Fedora). Google has customized the Linux kernel to better meet the needs of mobile devices. This customization involves changes to support specific hardware features, power management, and other mobile-specific requirements.
+
+- **Android-Specific Patches:** Android includes patches and modifications to the standard Linux kernel to add functionality required by mobile devices. For example, it might include patches to improve support for touchscreens, battery management, or device drivers specific to mobile hardware.
+
+### **3. **Layered Architecture**
+
+- **Linux Kernel:** At the bottom of the Android stack is the Linux kernel, which provides basic system services and hardware abstraction. It manages low-level operations such as device drivers, process scheduling, and security.
+
+- **Hardware Abstraction Layer (HAL):** Above the Linux kernel is the Hardware Abstraction Layer. The HAL provides a standard interface for hardware components, allowing Android to communicate with different hardware devices (e.g., cameras, sensors) in a uniform way.
+
+- **Android Runtime (ART) and Libraries:** Above the HAL, Android includes the Android Runtime (ART), which executes application code, and a set of core libraries that provide essential functions to applications.
+
+- **Application Framework:** This layer provides high-level services and APIs to Android applications. It includes components like Activity Manager, Window Manager, and Content Providers, which handle tasks such as user interfaces, resource management, and data sharing between apps.
+
+- **Applications:** At the top layer are the applications themselves, which users interact with. These applications utilize the services and APIs provided by the Android framework to deliver functionality and user experiences.
+
+### **4. **Security Model**
+
+- **Security Enhancements:** The Linux kernel provides a robust security model that Android builds upon. Android adds additional layers of security, including app sandboxing, permission management, and secure boot processes.
+
+- **Sandboxing:** Each app on Android runs in its own process and user space, isolated from other apps. This isolation is enforced by both the Linux kernel and the Android framework to prevent apps from accessing each other's data or system resources without permission.
+
+### **5. **System Calls and APIs**
+
+- **System Calls:** The Android operating system relies on system calls provided by the Linux kernel to perform low-level operations. These system calls are used for tasks such as file management, process control, and inter-process communication.
+
+- **APIs:** Android provides higher-level APIs to applications, which are built on top of the system calls and services provided by the Linux kernel and the Android runtime. These APIs offer functionalities such as graphics rendering, location services, and data storage.
+
+### **6. **Compatibility and Portability**
+
+- **Device Compatibility:** By using the Linux kernel, Android can benefit from the extensive hardware support and stability provided by Linux. This compatibility helps Android run on a wide range of devices, from smartphones and tablets to wearables and TVs.
+
+- **Portability:** The Linux kernel's portability allows Android to be adapted for different hardware architectures. For example, Android can run on ARM, x86, and other processor architectures, thanks to the underlying Linux kernel's support for these architectures.
+
+### **7. **Open Source Collaboration**
+
+- **Open Source Contribution:** Android’s use of the Linux kernel aligns with the open-source philosophy. Both Linux and Android benefit from contributions and improvements made by the global open-source community. While Android itself is open source, it also includes proprietary components developed by Google, such as Google Play Services.
+
+### **In Summary**
+
+Android is based on the Linux kernel, which means it uses the Linux kernel as its foundational layer for managing hardware resources and system operations. However, Android is not simply a version of Linux; it is a distinct operating system built on top of the Linux kernel with its own application framework, runtime environment, and user interface. The Linux kernel provides the low-level system functions, while Android adds layers of functionality and customization tailored for mobile devices, creating a unique and robust platform for running applications on a wide range of hardware.
 
 ### Q: What is process in OS ? And what is diff b/w process and thread ?
 A process is an instance of a program running in a computer. It is close in meaning to task , a term used in some operating systems. A process is basically a program in execution. The execution of a process must progress in a sequential fashion.
