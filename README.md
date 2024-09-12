@@ -239,23 +239,19 @@ A thread is the smallest unit of execution within a process. It is sometimes ref
 Understanding these concepts is crucial for efficient program design and system management, particularly in developing applications that require multitasking or concurrency.
 
 ### Q: What happens when activity rotated ?
-Activity is recreated after each rotation by default and onCreate() method of activity called again. You can override this behaviour with *configChanges* attribute of the activity tag in AndroidManifest. Calling setRetainInstance(true) on a Fragment is similar to setting the android:configChanges flag on an Activity. It signals to Android that you want to continue using the same instance of the current Fragment, so all of your member variables will remain untouched.
+When an activity is rotated in the context of mobile app development, particularly in Android, several things can happen:
 
-Life Cycle of orientation:-
+1. **Activity Lifecycle**: The activity's lifecycle is impacted. Specifically, the `onPause()`, `onStop()`, and `onDestroy()` methods are called, and then the `onCreate()` and `onStart()` methods are called when the activity is recreated. This is because a configuration change, like rotation, causes the current instance of the activity to be destroyed and a new instance to be created.
 
-onPause(); 
+2. **Configuration Changes**: Rotation changes the device's orientation, which is a configuration change. Android handles this by destroying and recreating the activity. This allows the app to adjust to the new configuration, such as updating the layout for landscape or portrait mode.
 
-onSaveInstanceState(); 
+3. **State Preservation**: If you need to preserve the state of the activity (e.g., user input, scroll position), you should use `onSaveInstanceState()` to save this information before the activity is destroyed. Then, you can restore the state in `onCreate()` or `onRestoreInstanceState()`.
 
-onStop(); 
+4. **Layout Changes**: Often, activities will use different layouts for portrait and landscape modes. The system will automatically load the appropriate layout based on the current orientation.
 
-onDestroy(); 
+5. **Resource Management**: If your app uses resources that are specific to orientation, like different drawables or layouts, Android will automatically manage and apply these resources when the orientation changes.
 
-onCreate(); 
-
-onStart(); 
-
-onResume();
+In summary, when an activity is rotated, the system handles it as a configuration change by destroying and recreating the activity. It's important to manage state and layout changes appropriately to ensure a smooth user experience.
 
 https://medium.com/google-developers/activity-revival-and-the-case-of-the-rotating-device-167e34f9a30d
 
